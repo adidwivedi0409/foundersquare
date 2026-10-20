@@ -1,0 +1,98 @@
+/* Founder Square — generated from tokens.json. Dark is the default theme;
+   light applies with data-theme="light" on <html>, or the OS setting when no
+   choice was made. Load Instrument Sans and DM Mono from Google Fonts. */
+:root,[data-theme="dark"]{
+  --ink:#0e0e0f;
+  --bone:#ece8df;
+  --amber:#ffb000;
+  --amber-ink:#0e0e0f;
+  --amber-label:#43320c;
+  --cut:#3a3a3c;
+  --c0:var(--ink);
+  --c1:var(--bone);
+  --bg:var(--c0);
+  --fg:var(--c1);
+  --fg-2:rgba(236,232,223,0.64);
+  --fg-3:rgba(236,232,223,0.5);
+  --bg-2:#1b1b1b;
+  --bg-3:#292828;
+  --rule:#323130;
+  --rule-2:#4c4b49;
+  color-scheme:dark;
+}
+[data-theme="light"]{
+  --ink:#141414;
+  --bone:#f2efe8;
+  --amber:#d97d00;
+  --amber-ink:#141414;
+  --amber-label:#3f2b10;
+  --cut:#d6d2c8;
+  --c0:var(--bone);
+  --c1:var(--ink);
+  --fg-2:rgba(20,20,20,0.64);
+  --fg-3:rgba(20,20,20,0.6);
+  --bg-2:#e5e2db;
+  --bg-3:#d7d5cf;
+  --rule:#ceccc6;
+  --rule-2:#b4b2ad;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --ink:#141414;
+    --bone:#f2efe8;
+    --amber:#d97d00;
+    --amber-ink:#141414;
+    --amber-label:#3f2b10;
+    --cut:#d6d2c8;
+    --c0:var(--bone);
+    --c1:var(--ink);
+    --fg-2:rgba(20,20,20,0.64);
+    --fg-3:rgba(20,20,20,0.6);
+    --bg-2:#e5e2db;
+    --bg-3:#d7d5cf;
+    --rule:#ceccc6;
+    --rule-2:#b4b2ad;
+    color-scheme:light;
+  }
+}
+:root{
+  --s1:8px;
+  --s2:12px;
+  --s3:16px;
+  --s4:24px;
+  --s5:40px;
+  --s6:64px;
+  --s7:96px;
+  --header-h:61px;
+  --radius-none:0;
+  --radius-pill:999px;
+  --radius-round:50%;
+  --stroke-rule:1px;
+  --stroke-rail:2px;
+  --stroke-bar:4px;
+  --led-size:6px;
+  --grain-dark:0.055;
+  --grain-light:0.08;
+  --pulse-low:0.2;
+  --font-display:"Instrument Sans", "Instrument Sans Fallback", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-body:"Instrument Sans", "Instrument Sans Fallback", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-mono:"DM Mono", ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+.wordmark{font-family:var(--font-display);font-size:150px;line-height:0.86;font-weight:450;letter-spacing:-0.04em}
+.display{font-family:var(--font-display);font-size:130px;line-height:0.92;font-weight:450;letter-spacing:-0.04em}
+.big{font-family:var(--font-display);font-size:120px;line-height:1;font-weight:450;letter-spacing:-0.045em}
+.display-md{font-family:var(--font-display);font-size:64px;line-height:0.95;font-weight:450;letter-spacing:-0.035em}
+.title{font-family:var(--font-display);font-size:44px;line-height:0.95;font-weight:450;letter-spacing:-0.035em}
+.display-sm{font-family:var(--font-display);font-size:36px;line-height:1;font-weight:450;letter-spacing:-0.03em}
+.lead{font-family:var(--font-body);font-size:30px;line-height:1.18;font-weight:450;letter-spacing:-0.022em}
+.question{font-family:var(--font-body);font-size:26px;line-height:1.15;font-weight:450;letter-spacing:-0.025em}
+.value{font-family:var(--font-body);font-size:20px;line-height:1.15;font-weight:450;letter-spacing:-0.02em}
+.copy{font-family:var(--font-body);font-size:19px;line-height:1.35;font-weight:400;letter-spacing:-0.01em}
+.body{font-family:var(--font-body);font-size:16px;line-height:1.3;font-weight:400;letter-spacing:-0.01em}
+.small{font-family:var(--font-body);font-size:15px;line-height:1.3;font-weight:400;letter-spacing:-0.01em}
+.ui{font-family:var(--font-body);font-size:14px;line-height:1.3;font-weight:500;letter-spacing:-0.01em}
+.brand{font-family:var(--font-body);font-size:15px;line-height:1.3;font-weight:500;letter-spacing:-0.02em}
+.label{font-family:var(--font-mono);font-size:12px;line-height:1.3;font-weight:500;letter-spacing:-0.03em}
+.num{font-family:var(--font-mono);font-size:14px;line-height:1.3;font-weight:400;letter-spacing:-0.02em}
+.badge{font-family:var(--font-mono);font-size:11px;line-height:1;font-weight:500;letter-spacing:0}

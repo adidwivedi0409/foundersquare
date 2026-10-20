@@ -35,7 +35,7 @@ if(location.hash&&location.hash.length>1){window.__deepHash=location.hash;try{hi
   --bone:#ece8df;           /* warm off-white text */
   --amber:#ffb000;          /* the one phosphor accent: status light, never a wash */
   --amber-ink:#0e0e0f;      /* text that sits on amber */
-  --cut:#3a3a3c;            /* the flat "cut-out" tone drawn over the dither (reference's grey wedge) */
+  --cut:#3a3a3c;            /* the flat "cut-out" tone laid over the line-art scenes (the grey wedge) */
   --c0:var(--ink);
   --c1:var(--bone);
   --bg:var(--c0);
@@ -119,7 +119,7 @@ h1,h2,h3,h4,p,ul,ol,figure{margin:0}
 ul,ol{padding:0;list-style:none}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;letter-spacing:inherit}
-canvas{display:block;width:100%;height:100%;image-rendering:pixelated}
+canvas{display:block;width:100%;height:100%}
 svg{display:block}
 :focus-visible{outline:2px solid var(--fg);outline-offset:-3px}   /* the figure colour contrasts on every ground */
 .cell-accent:focus-visible,.btn-accent:focus-visible,.mrow.mint:focus-visible,.hdr > .hcell.btn-accent:focus-visible{outline-color:var(--amber-ink)}
@@ -241,7 +241,7 @@ svg{display:block}
 .hdr.loading{background:var(--bg)}   /* while the cells drop in, no rule strip shows through */
 .hdr > .hcell{background:var(--bg);display:flex;align-items:center;min-width:0;height:60px}
 .hdr-brand{padding:0 20px 0 var(--gl);gap:10px;font-weight:500;letter-spacing:-.02em;font-size:15px;white-space:nowrap}
-.hdr-brand .led{margin:0}
+.hdr-brand .mark{width:18px;height:18px;flex:none}   /* the logo mark, one colour: follows --fg */
 .hdr-nav{padding:0 12px;gap:2px;overflow:hidden}
 .hdr-nav a{padding:8px 9px;font-size:14px;color:var(--fg-2);position:relative;white-space:nowrap;transition:color .2s}
 .hdr-nav a::after{content:"";position:absolute;left:10px;right:10px;bottom:4px;height:1px;background:var(--amber);transform:scaleX(0);transform-origin:0 50%;transition:transform .35s var(--ease-out)}
@@ -337,7 +337,7 @@ html:not(.js) .menu{display:none}
   .hero-title::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
     background:linear-gradient(180deg, color-mix(in srgb,var(--bg) 55%,transparent) 0%, color-mix(in srgb,var(--bg) 20%,transparent) 40%, color-mix(in srgb,var(--bg) 90%,transparent) 100%)}
   .hero-canvas .canvas-tag{display:none}
-  .hero-grid > .hero-title .label > span{background:var(--bg);padding:4px 6px;margin:-4px -6px}   /* knock-out chips over the dither */
+  .hero-grid > .hero-title .label > span{background:var(--bg);padding:4px 6px;margin:-4px -6px}   /* knock-out chips over the radar */
   .hero-cta{grid-template-columns:1fr}
   .hero-copy{padding-right:var(--gr)}
 }
@@ -572,14 +572,14 @@ html:not(.js) .faq .a{height:auto;visibility:visible}
 @media (max-width:480px){.team{grid-template-columns:1fr}}
 
 /* =====================================================================
-   15. CTA BAND (two marquee rows over the runway dither)
+   15. CTA BAND (two marquee rows over the runway line art)
    ===================================================================== */
 .cta-band{position:relative;display:block;overflow:hidden;border-top:1px solid var(--rule);min-height:clamp(320px,46vw,560px);background:var(--bg)}
 .cta-band canvas{position:absolute;inset:0;width:100%;height:100%}
 .cta-rows{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:0;pointer-events:none}
 .row{position:relative;font-family:var(--font-display);font-weight:450;font-size:clamp(52px,12.5vw,130px);line-height:.86;letter-spacing:-.04em;white-space:nowrap;overflow:hidden}
 .row .track{display:inline-flex;will-change:transform}
-.row .track span{display:inline-block;padding:0 .18em;background:var(--bg)}   /* text panels knock out the dither */
+.row .track span{display:inline-block;padding:0 .18em;background:var(--bg)}   /* text panels knock out the runway */
 .row .track span i{font-style:normal;color:var(--amber)}
 .arrow-panel{position:absolute;right:var(--gr);bottom:var(--s3);width:clamp(96px,14vw,180px);aspect-ratio:1;background:var(--amber);color:var(--amber-ink);display:grid;place-items:center;font-size:clamp(40px,6vw,80px)}
 .arrow-panel .arr{width:1em;height:1em}
@@ -657,7 +657,7 @@ html:not(.js) .faq .a{height:auto;visibility:visible}
      HEADER
      ===================================================================== -->
 <header class="hdr" id="hdr">
-  <a class="hcell hdr-brand" href="#top" data-anchor=""><span class="led led-live" aria-hidden="true"></span>Founder Square</a>
+  <a class="hcell hdr-brand" href="#top" data-anchor=""><svg class="mark" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0h80v20h-80zM0 20h20v60h-20zM30 30h50v20h-50zM50 50h30v10h-30zM30 60h50v20h-50z"/></svg>Founder Square</a>
   <nav class="hcell hdr-nav" aria-label="Primary">
     <a href="#about" data-anchor="">About</a>
     <a href="#build-night" data-anchor="">Build Night</a>
@@ -1130,7 +1130,7 @@ html:not(.js) .faq .a{height:auto;visibility:visible}
 </main>
 
 <!-- =====================================================================
-     CTA BAND — runway dither + two counter-rotating marquee rows
+     CTA BAND — runway line art + two counter-rotating marquee rows
      ===================================================================== -->
 <a class="cta-band" href="mailto:sponsors@foundersquare.example?subject=Build%20Night" aria-label="Email the organizers: let's build something at 1 AM">
   <canvas class="dither" id="bandCanvas" data-scene="runway" data-live="1" aria-hidden="true"></canvas>
@@ -1315,21 +1315,12 @@ html:not(.js) .faq .a{height:auto;visibility:visible}
   }
 
   /* =====================================================================
-     D. ORDERED BAYER DITHER (procedural scenes, no photos)
+     D. LINE ART (procedural scenes, no photos)
+     Every picture is drawn live in 1px hairlines of the scope's --fg, with
+     --cut for the flat slab and --amber only for status marks (the sweep).
+     The canvas is transparent: the cell's own ground shows through. `gain`
+     scales every alpha (hover brightens, the hero fades in from 0).
      ===================================================================== */
-  var B8 = [
-    [0, 32, 8, 40, 2, 34, 10, 42], [48, 16, 56, 24, 50, 18, 58, 26],
-    [12, 44, 4, 36, 14, 46, 6, 38], [60, 28, 52, 20, 62, 30, 54, 22],
-    [3, 35, 11, 43, 1, 33, 9, 41], [51, 19, 59, 27, 49, 17, 57, 25],
-    [15, 47, 7, 39, 13, 45, 5, 37], [63, 31, 55, 23, 61, 29, 53, 21]
-  ];
-  function hexToABGR(hex) {
-    hex = (hex || '').trim().replace('#', '');
-    if (hex.length === 3) hex = hex.split('').map(function (c) { return c + c; }).join('');
-    if (hex.length !== 6) hex = '808080';
-    var n = parseInt(hex, 16);
-    return ((0xff << 24) | ((n & 255) << 16) | ((n >> 8 & 255) << 8) | (n >> 16 & 255)) >>> 0;
-  }
   function sRand(seed) {
     var s = (seed * 9301 + 49297) % 233280;
     return function () { s = (s * 9301 + 49297) % 233280; return s / 233280; };
@@ -1340,70 +1331,46 @@ html:not(.js) .faq .a{height:auto;visibility:visible}
     opts = opts || {};
     var st = {
       canvas: canvas, scene: scene,
-      cell: opts.cell || 2, fps: opts.fps || (MOBILE ? 18 : 24),   /* cell is CSS px, so phones get the same grain */
+      fps: opts.fps || (MOBILE ? 24 : 30),
       live: !!opts.live, gain: opts.gain == null ? 1 : opts.gain,
       mx: 0.5, my: 0.5, p: 0.5, outline: !!opts.outline, seed: opts.seed || 0, text: opts.text || '',
-      t: 0, acc: 0, dirty: true, visible: false, w: 0, h: 0, cw: 0, ch: 0, scale: 2, FG: 0, BG: 0, accent: '#ffb000', cut: '#3a3a3c'
+      t: 0, acc: 0, dirty: true, visible: false, w: 0, h: 0, dpr: 1, fg: '#ece8df', accent: '#ffb000', cut: '#3a3a3c'
     };
-    var off = document.createElement('canvas');
-    var g = off.getContext('2d', { willReadFrequently: true });
     var ctx = canvas.getContext('2d');
-    // `cell` is in CSS pixels, so the dot size (and the per-frame cost) is the
-    // same on a retina display; the bitmap is upscaled by cell*dpr device px.
     st.resize = function () {
       var dpr = Math.min(window.devicePixelRatio || 1, 2);
-      var cw = canvas.clientWidth || 2, ch = canvas.clientHeight || 2;
-      st.cw = cw; st.ch = ch;
-      st.w = Math.max(2, Math.floor(cw / st.cell));
-      st.h = Math.max(2, Math.floor(ch / st.cell));
-      off.width = st.w; off.height = st.h;
-      st.scale = st.cell * dpr;
-      canvas.width = Math.round(st.w * st.scale); canvas.height = Math.round(st.h * st.scale);
+      st.w = canvas.clientWidth || 2; st.h = canvas.clientHeight || 2; st.dpr = dpr;
+      canvas.width = Math.round(st.w * dpr); canvas.height = Math.round(st.h * dpr);
       st.dirty = true;
     };
     st.colors = function () {
       var cs = getComputedStyle(canvas);
-      st.FG = hexToABGR(cs.getPropertyValue('--fg'));
-      st.BG = hexToABGR(cs.getPropertyValue('--bg'));
+      st.fg = (cs.getPropertyValue('--fg') || '#ece8df').trim();
       st.accent = (cs.getPropertyValue('--amber') || '#ffb000').trim();
       st.cut = (cs.getPropertyValue('--cut') || '#3a3a3c').trim();
     };
     st.render = function () {
-      var w = st.w, h = st.h;
-      if (!w || !h) return;
-      scene(g, w, h, st.t, st);
-      var img = g.getImageData(0, 0, w, h);
-      var px = new Uint32Array(img.data.buffer);
-      var gain = st.gain, FG = st.FG, BG = st.BG;
-      for (var y = 0, i = 0; y < h; y++) {
-        var row = B8[y & 7];
-        for (var x = 0; x < w; x++, i++) {
-          var p = px[i];
-          var l = (((p & 255) * 77) + (((p >> 8) & 255) * 151) + (((p >> 16) & 255) * 28)) >> 8;
-          l = l * gain;
-          px[i] = l > (row[x & 7] * 4 + 2) ? FG : BG;
-        }
-      }
-      g.putImageData(img, 0, 0);
-      ctx.imageSmoothingEnabled = false;
-      ctx.drawImage(off, 0, 0, canvas.width, canvas.height);
-      if (scene.overlay) scene.overlay(ctx, canvas.width, canvas.height, st.t, st);
+      if (!st.w || !st.h) return;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.setTransform(st.dpr, 0, 0, st.dpr, 0, 0);
+      ctx.globalAlpha = 1; ctx.setLineDash([]); ctx.lineWidth = 1;
+      scene(ctx, st.w, st.h, st.t, st);
+      ctx.globalAlpha = 1;
     };
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) { st.visible = entries[0].isIntersecting; }, { rootMargin: '12%' }).observe(canvas);
     } else st.visible = true;
     st.resize(); st.colors();
-    // height-only changes (window drag, docked devtools, split screen) re-measure this canvas alone
     if ('ResizeObserver' in window) {
-      new ResizeObserver(function () { if (canvas.clientWidth !== st.cw || canvas.clientHeight !== st.ch) st.resize(); }).observe(canvas);
+      new ResizeObserver(function () { if (canvas.clientWidth !== st.w || canvas.clientHeight !== st.h) st.resize(); }).observe(canvas);
     }
     dithers.push(st);
     return st;
   }
 
   // One loop for every canvas. Live ones render at their fps cap, static ones
-  // only when dirty and never above 30fps, so a scrub or a hover cannot push a
-  // canvas to the raw ticker rate.
+  // only when dirty and never above 30fps.
   gsap.ticker.add(function (t, dt) {
     if (document.hidden) return;
     for (var i = 0; i < dithers.length; i++) {
@@ -1416,115 +1383,125 @@ html:not(.js) .faq .a{height:auto;visibility:visible}
     }
   });
 
-  /* --- scenes: draw a grayscale picture; the dither does the rest --- */
+  /* --- scene helpers --- */
+  function A(st, a) { return Math.max(0, Math.min(1, a * st.gain)); }
+  function line(g, x1, y1, x2, y2) { g.beginPath(); g.moveTo(x1, y1); g.lineTo(x2, y2); g.stroke(); }
+  function slab(g, st, a, w, h) {   // the flat cut-out wedge, leaning left
+    g.globalAlpha = A(st, 1); g.fillStyle = st.cut;
+    g.beginPath(); g.moveTo(w * a, 0); g.lineTo(w * (a + 0.06), 0); g.lineTo(w * (a - 0.34), h); g.lineTo(w * (a - 0.4), h); g.closePath(); g.fill();
+  }
+
+  /* --- scenes --- */
   function radarScene(g, w, h, t, st) {
-    g.globalCompositeOperation = 'source-over';
-    g.fillStyle = '#000'; g.fillRect(0, 0, w, h);
     var cx = w * (0.56 + (st.mx - 0.5) * 0.12), cy = h * (0.5 + (st.my - 0.5) * 0.12);
-    var R = Math.max(w, h) * 0.6;
-    var grd = g.createRadialGradient(cx, cy, 0, cx, cy, R);
-    grd.addColorStop(0, '#2e2e2e'); grd.addColorStop(0.75, '#090909'); grd.addColorStop(1, '#000');
-    g.fillStyle = grd; g.fillRect(0, 0, w, h);
-    g.strokeStyle = '#6e6e6e'; g.lineWidth = 1;
-    for (var i = 1; i <= 5; i++) { g.beginPath(); g.arc(cx, cy, R * i / 5, 0, Math.PI * 2); g.stroke(); }
-    g.beginPath(); g.moveTo(cx - R, cy); g.lineTo(cx + R, cy); g.moveTo(cx, cy - R); g.lineTo(cx, cy + R); g.stroke();
-    var a = (t * 0.00065) % (Math.PI * 2);
-    for (var k = 0; k < 40; k++) {
-      var ang = a - k * 0.026, al = 1 - k / 40;
-      g.fillStyle = 'rgba(255,255,255,' + (al * al * 0.9).toFixed(3) + ')';
-      g.beginPath(); g.moveTo(cx, cy); g.arc(cx, cy, R, ang - 0.028, ang, false); g.closePath(); g.fill();
+    var R = Math.max(w, h) * 0.6, a = (t * 0.00065) % (Math.PI * 2), i;
+    slab(g, st, 0.875 + (st.mx - 0.5) * 0.06, w, h);
+    g.strokeStyle = st.fg; g.lineWidth = 1;
+    // range rings, alternate ones stronger, and the crosshair
+    for (i = 1; i <= 6; i++) { g.globalAlpha = A(st, i % 2 ? 0.16 : 0.3); g.beginPath(); g.arc(cx, cy, R * i / 6, 0, Math.PI * 2); g.stroke(); }
+    g.globalAlpha = A(st, 0.2);
+    line(g, cx - R, cy, cx + R, cy); line(g, cx, cy - R, cx, cy + R);
+    // bearing ticks on the fourth ring: every 5 degrees, long every 30
+    var rt = R * 4 / 6;
+    for (i = 0; i < 72; i++) {
+      var ang = i * Math.PI / 36, long = i % 6 === 0, c = Math.cos(ang), s = Math.sin(ang);
+      g.globalAlpha = A(st, long ? 0.55 : 0.3);
+      line(g, cx + c * rt, cy + s * rt, cx + c * (rt + (long ? 14 : 6)), cy + s * (rt + (long ? 14 : 6)));
     }
-    var rnd = sRand(7 + st.seed);
+    // the sweep: a fading amber wedge behind a solid amber line
+    g.fillStyle = st.accent;
+    for (var k = 0; k < 36; k++) {
+      var a0 = a - (k + 1) * 0.022, a1 = a - k * 0.022, f = 1 - k / 36;
+      g.globalAlpha = A(st, f * f * 0.16);
+      g.beginPath(); g.moveTo(cx, cy); g.arc(cx, cy, R, a0, a1, false); g.closePath(); g.fill();
+    }
+    g.globalAlpha = A(st, 1); g.strokeStyle = st.accent; g.lineWidth = 1.5;
+    line(g, cx, cy, cx + Math.cos(a) * R, cy + Math.sin(a) * R);
+    g.fillStyle = st.accent; g.fillRect(cx - 3, cy - 3, 6, 6);
+    // contacts: square, lit as the sweep passes, with a ring while fresh
+    var rnd = sRand(7 + st.seed); g.lineWidth = 1;
     for (var b = 0; b < 16; b++) {
       var br = R * (0.12 + rnd() * 0.82), ba = rnd() * Math.PI * 2;
       var d = (a - ba) % (Math.PI * 2); if (d < 0) d += Math.PI * 2;
       var lum = Math.max(0, 1 - d / 2.4);
-      if (lum < 0.03) continue;
       var bx = cx + Math.cos(ba) * br, by = cy + Math.sin(ba) * br;
-      g.fillStyle = 'rgba(255,255,255,' + lum.toFixed(3) + ')';
-      g.fillRect(bx - 1.5, by - 1.5, 3, 3);
+      g.globalAlpha = A(st, 0.15 + lum * 0.85); g.fillStyle = st.fg; g.fillRect(bx - 2, by - 2, 4, 4);
+      if (lum > 0.75) { g.globalAlpha = A(st, (lum - 0.75) * 3); g.strokeStyle = st.fg; g.strokeRect(bx - 7, by - 7, 14, 14); }
     }
-    st._a = a; st._cx = cx; st._cy = cy; st._R = R;
   }
-  radarScene.overlay = function (ctx, W, H, t, st) {
-    // flat cut-out slab over the dither (the reference's grey wedge), nudged by the pointer
-    var sx = (st.mx - 0.5) * W * 0.06;
-    ctx.globalAlpha = Math.max(0, Math.min(1, st.gain));
-    ctx.fillStyle = st.cut;
-    ctx.beginPath(); ctx.moveTo(W * 0.80 + sx, 0); ctx.lineTo(W * 0.875 + sx, 0); ctx.lineTo(W * 0.47 + sx, H); ctx.lineTo(W * 0.415 + sx, H); ctx.closePath(); ctx.fill();
-    ctx.globalAlpha = 1;
-    if (st.gain < 0.2) return;
-    var c = st.scale;
-    ctx.strokeStyle = st.accent; ctx.lineWidth = Math.max(1, c * 0.7);
-    ctx.beginPath(); ctx.moveTo(st._cx * c, st._cy * c);
-    ctx.lineTo((st._cx + Math.cos(st._a) * st._R) * c, (st._cy + Math.sin(st._a) * st._R) * c); ctx.stroke();
-    ctx.fillStyle = st.accent; ctx.fillRect(st._cx * c - c, st._cy * c - c, c * 2, c * 2);
-  };
 
-  function runwayScene(g, w, h, t) {
-    g.fillStyle = '#000'; g.fillRect(0, 0, w, h);
-    var hz = h * 0.4, cx = w * 0.5;
-    var sky = g.createLinearGradient(0, hz - h * 0.25, 0, hz);
-    sky.addColorStop(0, '#000'); sky.addColorStop(1, '#555');
-    g.fillStyle = sky; g.fillRect(0, hz - h * 0.25, w, h * 0.25);
-    g.strokeStyle = '#8a8a8a'; g.lineWidth = 1;
-    for (var i = -9; i <= 9; i++) { g.beginPath(); g.moveTo(cx + i * w * 0.05, hz); g.lineTo(cx + i * w * 0.42, h); g.stroke(); }
+  function runwayScene(g, w, h, t, st) {
+    var hz = h * 0.4, cx = w * 0.5, i;
+    g.strokeStyle = st.fg; g.lineWidth = 1;
+    // sky: rules thinning toward the top
+    for (i = 1; i <= 6; i++) { var sy = hz - (h * 0.32) * Math.pow(i / 6, 1.6); g.globalAlpha = A(st, 0.22 * (1 - i / 7)); line(g, 0, sy, w, sy); }
+    g.globalAlpha = A(st, 0.6); line(g, 0, hz, w, hz);
+    // floor: rays to the vanishing point and rules rushing toward you
+    g.globalAlpha = A(st, 0.24);
+    for (i = -12; i <= 12; i++) line(g, cx + i * w * 0.04, hz, cx + i * w * 0.42, h);
     var ph = (t * 0.00022) % 1;
-    for (var j = 0; j < 12; j++) {
-      var z = ((j / 12) + ph) % 1, y = hz + (h - hz) * z * z;
-      g.strokeStyle = 'rgba(255,255,255,' + (0.2 + z * 0.8).toFixed(2) + ')';
-      g.beginPath(); g.moveTo(0, y); g.lineTo(w, y); g.stroke();
+    for (var j = 0; j < 14; j++) {
+      var z = ((j / 14) + ph) % 1, y = hz + (h - hz) * z * z;
+      g.globalAlpha = A(st, 0.08 + z * 0.62); line(g, 0, y, w, y);
     }
-    var fl = g.createLinearGradient(0, hz, 0, h);
-    fl.addColorStop(0, 'rgba(0,0,0,0)'); fl.addColorStop(1, 'rgba(255,255,255,0.3)');
-    g.fillStyle = fl; g.fillRect(0, hz, w, h - hz);
   }
 
-  // Event cards: a giant edition numeral. The light sweeps across it as the
-  // card scrubs past (st.p = 0..1); placeholder editions are outlined, the
-  // confirmed one is solid, so the state of the series reads from across the room.
+  // Event cards: the edition numeral as line art. Confirmed editions are
+  // hatched inside a solid outline; placeholders are a dashed outline only.
+  // The hatching is brightest where the light (st.p, driven by scroll) is.
   function glyphScene(g, w, h, t, st) {
-    g.fillStyle = '#000'; g.fillRect(0, 0, w, h);
-    var rnd = sRand(11 + st.seed), p = st.p;
-    var cx = w * (0.12 + p * 0.76), cy = h * (0.3 + rnd() * 0.4);
-    var grd = g.createRadialGradient(cx, cy, 0, cx, cy, Math.max(w, h) * 0.85);
-    grd.addColorStop(0, '#9a9a9a'); grd.addColorStop(1, '#000');
-    g.fillStyle = grd; g.fillRect(0, 0, w, h);
-    g.save(); g.translate(w / 2, h / 2); g.rotate(-0.7 + rnd() * 0.6);
-    g.fillStyle = 'rgba(0,0,0,0.4)';
-    for (var i = -7; i < 7; i++) g.fillRect(-w * 2, i * h / 4.5, w * 4, h / 15);
+    var rnd = sRand(11 + st.seed), p = st.p, rot = -0.7 + rnd() * 0.6, i;
+    var lx = w * (0.12 + p * 0.76);
+    slab(g, st, 0.58 + sRand(17 + st.seed)() * 0.28, w, h);
+    // faint diagonal field
+    g.save(); g.translate(w / 2, h / 2); g.rotate(rot);
+    g.strokeStyle = st.fg; g.lineWidth = 1; g.globalAlpha = A(st, 0.09);
+    var span = Math.hypot(w, h);
+    for (i = -span; i < span; i += 16) line(g, -span, i, span, i);
     g.restore();
-    g.font = '500 ' + Math.floor(h * 0.95) + 'px "Instrument Sans", Arial, sans-serif';
+    var size = Math.floor(h * 0.95), gx = w * 0.5 + (0.5 - p) * w * 0.14, gy = h * 0.56;
+    g.font = '500 ' + size + 'px "Instrument Sans", Arial, sans-serif';
     g.textBaseline = 'middle'; g.textAlign = 'center';
-    var tg = g.createLinearGradient(0, 0, w, h);
-    tg.addColorStop(0, '#fff'); tg.addColorStop(1, '#1a1a1a');
-    var gx = w * 0.5 + (0.5 - p) * w * 0.14, gy = h * 0.56;
-    if (st.outline) { g.strokeStyle = tg; g.lineWidth = Math.max(2, h * 0.035); g.lineJoin = 'round'; g.strokeText(st.text, gx, gy); }
-    else { g.fillStyle = tg; g.fillText(st.text, gx, gy); }
+    if (!st.outline) {
+      // hatch clipped to the glyph through an offscreen layer
+      var off = st._off || (st._off = document.createElement('canvas')), o = off.getContext('2d');
+      off.width = g.canvas.width; off.height = g.canvas.height;
+      o.setTransform(st.dpr, 0, 0, st.dpr, 0, 0); o.strokeStyle = st.fg; o.lineWidth = 1;
+      for (var x = -h; x < w + h; x += 5) {
+        var near = Math.exp(-Math.pow((x - lx) / (w * 0.35), 2));
+        o.globalAlpha = A(st, 0.3 + near * 0.7);
+        o.beginPath(); o.moveTo(x, 0); o.lineTo(x - h * 0.6, h); o.stroke();
+      }
+      o.globalAlpha = 1; o.globalCompositeOperation = 'destination-in';
+      o.font = g.font; o.textBaseline = 'middle'; o.textAlign = 'center'; o.fillText(st.text, gx, gy);
+      o.globalCompositeOperation = 'source-over';
+      g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.drawImage(off, 0, 0); g.restore();
+      g.globalAlpha = A(st, 0.95); g.lineWidth = 1.25; g.strokeStyle = st.fg; g.strokeText(st.text, gx, gy);
+    } else {
+      g.globalAlpha = A(st, 0.75); g.lineWidth = 1.25; g.strokeStyle = st.fg; g.setLineDash([7, 6]);
+      g.strokeText(st.text, gx, gy); g.setLineDash([]);
+    }
+    // the light itself: one vertical hairline
+    g.globalAlpha = A(st, 0.25); g.lineWidth = 1; line(g, lx, 0, lx, h);
   }
-  glyphScene.overlay = function (ctx, W, H, t, st) {
-    // one flat slab per card, seeded, like the cut-out shapes in the reference
-    var rnd = sRand(17 + st.seed), a = 0.58 + rnd() * 0.28;
-    ctx.fillStyle = st.cut;
-    ctx.beginPath(); ctx.moveTo(W * a, 0); ctx.lineTo(W * (a + 0.06), 0); ctx.lineTo(W * (a - 0.34), H); ctx.lineTo(W * (a - 0.4), H); ctx.closePath(); ctx.fill();
-  };
 
   function globeScene(g, w, h, t, st) {
-    g.fillStyle = '#000'; g.fillRect(0, 0, w, h);
-    var rnd = sRand(31 + st.seed);
-    var lx = w * (0.2 + rnd() * 0.6), ly = h * (0.2 + rnd() * 0.6);
-    var grd = g.createRadialGradient(lx, ly, 0, lx, ly, Math.max(w, h) * 0.8);
-    grd.addColorStop(0, '#6a6a6a'); grd.addColorStop(1, '#000');
-    g.fillStyle = grd; g.fillRect(0, 0, w, h);
+    var rnd = sRand(31 + st.seed), i;
+    rnd(); rnd();   // same seeded tilt per person as before
     var cx = w * 0.5, cy = h * 0.52, r = Math.min(w, h) * 0.36, tilt = -0.4 + rnd() * 0.8;
-    g.strokeStyle = '#e8e8e8'; g.lineWidth = 1;
+    g.strokeStyle = st.fg; g.lineWidth = 1;
+    g.globalAlpha = A(st, 0.18); g.setLineDash([2, 4]);
+    g.beginPath(); g.arc(cx, cy, r * 1.18, 0, Math.PI * 2); g.stroke(); g.setLineDash([]);
     g.save(); g.translate(cx, cy); g.rotate(tilt);
-    g.beginPath(); g.arc(0, 0, r, 0, Math.PI * 2); g.stroke();
-    for (var i = 1; i < 5; i++) { var k = Math.cos(i * Math.PI / 5); g.beginPath(); g.ellipse(0, 0, Math.max(0.5, r * Math.abs(k)), r, 0, 0, Math.PI * 2); g.stroke(); }
-    for (var j = 1; j < 4; j++) { var la = j * Math.PI / 4 - Math.PI / 2; var yy = r * Math.sin(la), rr = r * Math.cos(la); g.beginPath(); g.ellipse(0, yy, rr, rr * 0.28, 0, 0, Math.PI * 2); g.stroke(); }
+    g.globalAlpha = A(st, 0.9); g.beginPath(); g.arc(0, 0, r, 0, Math.PI * 2); g.stroke();
+    g.globalAlpha = A(st, 0.45);
+    for (i = 1; i < 6; i++) { var k = Math.cos(i * Math.PI / 6); g.beginPath(); g.ellipse(0, 0, Math.max(0.5, r * Math.abs(k)), r, 0, 0, Math.PI * 2); g.stroke(); }
+    for (var j = 1; j < 5; j++) { var la = j * Math.PI / 5 - Math.PI / 2; var yy = r * Math.sin(la), rr = r * Math.cos(la); g.beginPath(); g.ellipse(0, yy, rr, rr * 0.28, 0, 0, Math.PI * 2); g.stroke(); }
+    g.globalAlpha = A(st, 0.7); line(g, 0, -r * 1.12, 0, r * 1.12);
     g.restore();
-    g.fillStyle = '#fff'; g.fillRect(cx - 1, cy - 1, 2, 2);
+    g.globalAlpha = A(st, 1); g.fillStyle = st.fg; g.fillRect(cx - 2, cy - 2, 4, 4);
   }
+
   var SCENES = { radar: radarScene, runway: runwayScene, glyph: glyphScene, globe: globeScene };
 
   /* =====================================================================
@@ -1890,7 +1867,7 @@ html:not(.js) .faq .a{height:auto;visibility:visible}
       }
 
       /* one ticker callback for velocity-driven effects (marquee speed, heading
-         skew, and the hero radar dimming at speed, like the reference's dither) */
+         skew, and the hero radar dimming at speed, like the reference) */
       var skewEls = $$('.display-skew');
       var skewTo = skewEls.length ? gsap.quickTo(skewEls, 'skewY', { duration: 0.4, ease: 'power3' }) : null;
       var gainTo = heroDither ? gsap.quickTo(heroDither, 'gain', { duration: 0.5, ease: 'power2.out', onUpdate: function () { heroDither.dirty = true; } }) : null;
@@ -2007,7 +1984,7 @@ html:not(.js) .faq .a{height:auto;visibility:visible}
       return function () { drift.kill(); heroDither.mx = 0.5; heroDither.my = 0.5; };
     }); });
 
-    /* --- pointer-fine only: magnetic CTAs, dither hover, card decode --- */
+    /* --- pointer-fine only: magnetic CTAs, canvas hover, card decode --- */
     safe('pointer', function () { mm.add('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)', function () {
       var ac = new AbortController(), sig = { signal: ac.signal };
       $$('.magnetic').forEach(function (btn) {
@@ -2027,7 +2004,7 @@ html:not(.js) .faq .a{height:auto;visibility:visible}
         panel.addEventListener('pointermove', function (e) { if (!pr) return; mxTo((e.clientX - pr.left) / pr.width); myTo((e.clientY - pr.top) / pr.height); }, sig);
         panel.addEventListener('pointerleave', function () { pr = null; mxTo(0.5); myTo(0.5); }, sig);
       }
-      // cards: dither sharpens and recolours on hover; mono label decodes
+      // cards: line art brightens and recolours on hover; mono label decodes
       dithers.forEach(function (d) {
         if (d.live) return;
         var card = d.canvas.closest('.card'); if (!card) return;
@@ -2035,7 +2012,7 @@ html:not(.js) .faq .a{height:auto;visibility:visible}
         card.addEventListener('pointerenter', function () { d.colors(); gTo(1.35); var l = card.querySelector('.label'); if (l) scrambleLabel(l, 0); }, sig);
         card.addEventListener('pointerleave', function () { gTo(1); setTimeout(function () { d.colors(); d.dirty = true; }, 260); }, sig);
       });
-      // band dither sharpens on hover
+      // the runway brightens on hover
       if (bandDither) {
         var band = bandDither.canvas.parentElement;
         var bTo = gsap.quickTo(bandDither, 'gain', { duration: 0.6, ease: 'power2.out' });
