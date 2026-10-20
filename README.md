@@ -1,6 +1,6 @@
-# The Founder's Circle
+# Founder Square
 
-Site for The Founder's Circle and Build Night at UC Berkeley, live at [foundersquare.org](https://foundersquare.org).
+Site for Founder Square and Build Night at UC Berkeley, live at [foundersquare.org](https://foundersquare.org).
 
 A single static page: `index.html` with vendored [GSAP](https://gsap.com) 3.13 (ScrollTrigger, SplitText) and [Lenis](https://lenis.darkroom.engineering) in `vendor/`. No build step.
 
