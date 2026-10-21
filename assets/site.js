@@ -30,7 +30,7 @@
   try { history.scrollRestoration = 'manual'; } catch (e) {}
 
   /* --- contact address: ONE place to change it. PLACEHOLDER until launch. --- */
-  var CONTACT = 'sponsors@foundersquare.example';
+  var CONTACT = 'adityadwivedi0409@gmail.com';
   $$('a[href^="mailto:"]').forEach(function (a) { a.setAttribute('href', a.getAttribute('href').replace(/^mailto:[^?]*/, 'mailto:' + CONTACT)); });
   $$('[data-email]').forEach(function (el) { el.textContent = CONTACT; });
   $$('[data-copy]').forEach(function (b) {

@@ -30,9 +30,10 @@ To point the page at a different form, change the two URLs in `sponsor.html`: th
 
 ## Placeholders
 
-Everything still to fill in is badged on the page ("TBD", "Replace before launch"):
+The contact address is Adi's Gmail, set once as `CONTACT` at the top of `assets/site.js`: it rewrites every `mailto:`, the copy buttons and the footer address on load, so change it there (and in the HTML fallbacks) when the org gets its own inbox.
 
-- `CONTACT` at the top of `assets/site.js` is the sponsor email. It rewrites every `mailto:`, the copy buttons and the footer address.
+Everything still to fill in is badged on the page ("TBD"):
+
 - On `/build-night`: the venue room and the registration form link (`#register`).
 - On `/events`: the mailing list link, and every event after Build Night 01 is a placeholder.
 - In the footer: the social link.
