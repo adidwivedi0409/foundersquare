@@ -2,179 +2,134 @@
 <html lang="en-US">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Founder Square</title>
 <meta name="description" content="Founder Square is a student-run community of builders and founders at UC Berkeley. Next event: Build Night 01, Saturday, November 14, 2026.">
-<meta name="theme-color" content="#0e0e0f">
+<meta name="theme-color" content="#d6282b">
 <meta property="og:title" content="Founder Square">
 <meta property="og:description" content="The room where Berkeley builds. Next event: Build Night 01, Saturday, November 14, 2026.">
 <meta property="og:type" content="website">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<script src="/assets/boot.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
-<link rel="stylesheet" href="/assets/pages.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- arrow glyphs reused everywhere -->
-<svg width="0" height="0" style="position:absolute;" aria-hidden="true" focusable="false">
-  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11.5M8.5 2.5 14 8l-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></symbol>
-  <symbol id="i-ext" viewBox="0 0 16 16"><path d="M3.5 12.5 12.5 3.5M5 3.5h7.5V11" fill="none" stroke="currentColor" stroke-width="1.4"></path></symbol>
-</svg>
-
-<!-- ===================================================================== HEADER -->
-<header class="hdr" id="hdr">
-  <a class="hcell hdr-brand" href="/" aria-current="page"><svg class="mark" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0h80v20h-80zM0 20h20v60h-20zM30 30h50v20h-50zM50 50h30v10h-30zM30 60h50v20h-50z"/></svg>Founder Square</a>
-  <nav class="hcell hdr-nav" aria-label="Primary">
-    <a href="/events">Events</a>
-    <a href="/build-night">Build Night</a>
-    <a href="/sponsor">Sponsor</a>
-    <a href="#about" data-anchor="">About</a>
-  </nav>
-  <div class="hcell hdr-theme">
-    <button class="toggle" type="button" aria-label="Toggle light mode" aria-pressed="false"><span class="dot"></span></button>
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="/" aria-label="Founder Square home"><svg class="mark" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0h80v20h-80zM0 20h20v60h-20zM30 30h50v20h-50zM50 50h30v10h-30zM30 60h50v20h-50z"/></svg><span>Founder Square</span></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="/events">Events</a>
+      <a href="/build-night">Build Night</a>
+      <a href="/sponsor">Sponsor</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="btn btn-primary btn-sm hdr-cta" href="/sponsor">Sponsor us</a>
   </div>
-  <a class="hcell hdr-cta btn btn-accent magnetic" href="/sponsor"><span class="btn-bg"></span><span>Sponsor us</span><span class="arr" aria-hidden="true"><svg><use href="#i-arrow"></use></svg><svg><use href="#i-arrow"></use></svg></span></a>
-  <button class="hcell burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span class="l1"></span><span class="l2"></span></button>
-  <div class="hprogress" aria-hidden="true"></div>
 </header>
-
-<!-- mobile menu -->
-<div class="menu" id="menu" aria-hidden="true" inert="" data-lenis-prevent="">
-  <nav class="menu-grid" aria-label="Menu">
-    <a class="mrow" href="/events"><span class="label">01</span>Events<span class="arr" aria-hidden="true"><svg><use href="#i-arrow"></use></svg><svg><use href="#i-arrow"></use></svg></span></a>
-    <a class="mrow" href="/build-night"><span class="label">02</span>Build Night<span class="arr" aria-hidden="true"><svg><use href="#i-arrow"></use></svg><svg><use href="#i-arrow"></use></svg></span></a>
-    <a class="mrow" href="/sponsor"><span class="label">03</span>Sponsor<span class="arr" aria-hidden="true"><svg><use href="#i-arrow"></use></svg><svg><use href="#i-arrow"></use></svg></span></a>
-    <a class="mrow" href="#about" data-anchor=""><span class="label">04</span>About<span class="arr" aria-hidden="true"><svg><use href="#i-arrow"></use></svg><svg><use href="#i-arrow"></use></svg></span></a>
-    <div class="mrow theme-row"><span>Light mode</span><button class="toggle" type="button" aria-label="Toggle light mode" aria-pressed="false"><span class="dot"></span></button></div>
-    <div class="mrow meta"><span>Build Night 01 · Sat, Nov 14, 2026 · Doors 6:00 PM</span><span><span class="led led-live" aria-hidden="true"></span>Confirmed</span></div>
-    <a class="mrow mint" href="/sponsor"><span class="label">→</span>Sponsor us<span class="arr" aria-hidden="true"><svg><use href="#i-arrow"></use></svg><svg><use href="#i-arrow"></use></svg></span></a>
-  </nav>
-</div>
 
 <main id="main">
 
-<!-- ===================================================================== HERO -->
-<section class="hero" id="top">
-  <div class="hero-grid">
-    <div class="hcell hero-title">
-      <div class="label dim"><span>UC Berkeley · Student-run</span><span>Est. 2026</span></div>
-      <h1 class="wordmark display" aria-label="Founder Square">
-        <span class="wline" aria-hidden="true"><span class="cm"><span class="char">F</span></span><span class="cm"><span class="char">O</span></span><span class="cm"><span class="char">U</span></span><span class="cm"><span class="char">N</span></span><span class="cm"><span class="char">D</span></span><span class="cm"><span class="char">E</span></span><span class="cm"><span class="char">R</span></span></span>
-        <span class="wline" aria-hidden="true"><span class="cm"><span class="char">S</span></span><span class="cm"><span class="char">Q</span></span><span class="cm"><span class="char">U</span></span><span class="cm"><span class="char">A</span></span><span class="cm"><span class="char">R</span></span><span class="cm"><span class="char">E</span></span></span>
-      </h1>
-      <div class="label dim"><span>Next event · Build Night 01 · Sat, Nov 14</span><span class="dimmer">Free</span></div>
-    </div>
-    <div class="hcell hero-canvas">
-      <canvas class="dither" id="heroCanvas" data-scene="radar" data-live="1" aria-hidden="true"></canvas>
-      <div class="label canvas-tag tr">Sweep · 37.87 N 122.26 W</div>
-      <div class="label canvas-tag">Radar · Berkeley · live</div>
-    </div>
-    <div class="hcell hero-copy">
-      <p class="tagline hero-lead">The room where Berkeley builds.</p>
-      <div class="label dim sub">A student-run community of builders and founders at UC Berkeley.</div>
-    </div>
-    <div class="hcell hero-cta">
-      <a class="btn btn-accent magnetic" href="/events"><span class="btn-bg"></span><span class="btn-sub">Students</span><span>See upcoming events</span><span class="arr" aria-hidden="true"><svg><use href="#i-arrow"></use></svg><svg><use href="#i-arrow"></use></svg></span></a>
-      <a class="btn magnetic" href="/sponsor"><span class="btn-bg"></span><span class="btn-sub">Startups</span><span>Sponsor an event</span><span class="arr" aria-hidden="true"><svg><use href="#i-arrow"></use></svg><svg><use href="#i-arrow"></use></svg></span></a>
+<!-- hero: one line, two doors, palm trees -->
+<section class="hero">
+  <div class="wrap hero-in">
+    <span class="eyebrow"><span class="dot" aria-hidden="true"></span>UC Berkeley · Student-run</span>
+    <h1>The room where <em>Berkeley</em> builds.</h1>
+    <p class="lead">A student-run community of builders and founders. Come build something real in one night, show it off, and meet the people you'll build the next thing with.</p>
+    <div class="actions">
+      <a class="btn btn-primary btn-lg" href="/events">See upcoming events <span aria-hidden="true">→</span></a>
+      <a class="btn btn-lg" href="/sponsor">Sponsor an event</a>
     </div>
   </div>
+  <div class="sun" aria-hidden="true"></div>
+  <div class="palms" aria-hidden="true"></div>
+</section>
 
-  <!-- the featured event: one row, one button -->
-  <div class="grid next-event" id="next" role="group" aria-label="Next event">
-    <div>
-      <span class="label dim"><span class="led led-live" aria-hidden="true"></span>Next event · Edition 01</span>
+<!-- the next event: one card, one button -->
+<section class="next" aria-labelledby="next-title">
+  <div class="wrap">
+    <div class="card next-card">
       <div>
-        <h2 class="display-md">Build Night 01</h2>
-        <p class="copy" style="margin-top:12px;">One night, one project, one demo. 100 to 150 students, free, UC Berkeley.</p>
+        <span class="chip live">Next up</span>
+        <h2 id="next-title">Build Night 01</h2>
+        <p class="muted">One night, one project, one demo. 100 to 150 students, free, UC Berkeley.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>When</b>Saturday, November 14, 2026<br><span class="muted small">Doors 6:00 PM · Demos after midnight</span></div>
+        <!-- PLACEHOLDER: building and room once booked -->
+        <div class="fact"><b>Where</b>UC Berkeley<br><span class="muted small">Room announced to registrants</span></div>
+      </div>
+      <div class="next-cta">
+        <div class="countdown" id="countdown" role="timer" aria-label="Countdown to doors">
+          <span class="u"><b data-cd="d">00</b><small>days</small></span>
+          <span class="u"><b data-cd="h">00</b><small>hrs</small></span>
+          <span class="u"><b data-cd="m">00</b><small>min</small></span>
+          <span class="u"><b data-cd="s">00</b><small>sec</small></span>
+        </div>
+        <span class="muted small" id="boardState">until doors open</span>
+        <a class="btn btn-primary" href="/build-night">Build Night details <span aria-hidden="true">→</span></a>
       </div>
     </div>
-    <div class="fact">
-      <div><span class="label dim">When</span><br><span class="val">Saturday, November 14, 2026<br><span class="dim">Doors 6:00 PM · Demos after midnight</span></span></div>
-      <!-- PLACEHOLDER: replace with building and room once booked -->
-      <div><span class="label dim">Where</span><br><span class="val">UC Berkeley<br><span class="dim">Room announced to registrants</span></span></div>
-    </div>
-    <div>
-      <span class="label dim">Countdown · d : h : m : s</span>
-      <div>
-        <div class="countdown" id="countdown" role="timer" aria-live="off"><span id="cdDigits" aria-hidden="true">00:00:00:00</span></div>
-        <span class="label dim" id="boardState" style="display:block;margin-top:10px;">T-minus to doors</span>
-      </div>
-    </div>
-    <a class="f-cta cell-accent panel-link magnetic" href="/build-night">
-      <span class="label">The night</span>
-      <span class="big-link"><span>Build Night details</span><span class="arr" aria-hidden="true"><svg><use href="#i-arrow"></use></svg><svg><use href="#i-arrow"></use></svg></span></span>
-    </a>
   </div>
 </section>
 
-<!-- ===================================================================== ABOUT -->
-<section class="grid about-grid grid-reveal" id="about">
-  <div>
-    <span class="label dim" data-scramble="">About</span>
-    <h2 class="display-md">Who we are</h2>
-    <span class="label dim">Student-run · UC Berkeley · Est. 2026</span>
-  </div>
-  <div>
+<!-- who we are -->
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="wrap about">
     <div>
-      <!-- Edit freely: this is our draft of what Founder Square is -->
-      <p class="copy">Founder Square is a student-run community at UC Berkeley for people who would rather build the thing than talk about building it. We put on nights where you build something real and show it, starting with Build Night on November 14.</p>
-      <p class="copy" style="margin-top:1em;">Sponsors show up with credits, prizes and judges because a demo at 1 AM tells them more about a student than a resume does. You leave with a project, a few new collaborators, and the next event on your calendar.</p>
+      <span class="eyebrow">About</span>
+      <h2 id="about-title">Who we are</h2>
     </div>
-    <div>
-      <span class="label dim">The crew</span>
+    <div class="about-copy">
+      <p>Founder Square is a student-run community at UC Berkeley for people who would rather build the thing than talk about building it. We put on nights where you build something real and show it, starting with Build Night on November 14.</p>
+      <p>Sponsors show up with credits, prizes and judges because a demo at 1 AM tells them more about a student than a resume does. You leave with a project, a few new collaborators, and the next event on your calendar.</p>
       <!-- PLACEHOLDER: first names until roles exist -->
-      <div class="crew" style="margin-top:10px;"><span>Adi</span><span>Sriram</span><span>Vivan</span><span>Ryan</span><span>Vihaan</span><span>Tushar</span><span>Jerry</span><a class="text-link dim" href="mailto:adityadwivedi0409@gmail.com?subject=Volunteering">Help run the next one</a></div>
+      <div class="crew"><b>The crew</b><span>Adi</span><span>Sriram</span><span>Vivan</span><span>Ryan</span><span>Vihaan</span><span>Tushar</span><span>Jerry</span></div>
+      <p><a href="mailto:adityadwivedi0409@gmail.com?subject=Volunteering">Want to help run the next one? Email us <span aria-hidden="true">→</span></a></p>
     </div>
+  </div>
+</section>
+
+<!-- one red band, one button -->
+<section class="band">
+  <div class="wrap">
+    <h2>Build Night 01 is Saturday, November 14.</h2>
+    <p>Free for any UC Berkeley student. Bring a laptop and we'll handle the rest.</p>
+    <a class="btn btn-white btn-lg" href="/build-night#register">Register</a>
   </div>
 </section>
 
 </main>
 
-<!-- ===================================================================== CTA BAND -->
-<a class="cta-band" href="/build-night#register" aria-label="Build Night 01: register">
-  <canvas class="dither" id="bandCanvas" data-scene="runway" data-live="1" aria-hidden="true"></canvas>
-  <div class="band-label label" aria-hidden="true"><span>Runway · demos 12:15 AM</span><span>Build Night 01</span></div>
-  <div class="cta-rows" aria-hidden="true">
-    <div class="row r1"><div class="track"><span>Let's build <i>—</i>&nbsp;</span><span>Let's build <i>—</i>&nbsp;</span><span>Let's build <i>—</i>&nbsp;</span><span>Let's build <i>—</i>&nbsp;</span><span>Let's build <i>—</i>&nbsp;</span><span>Let's build <i>—</i>&nbsp;</span></div></div>
-    <div class="row r2"><div class="track"><span>Something at 1 AM <i>—</i>&nbsp;</span><span>Something at 1 AM <i>—</i>&nbsp;</span><span>Something at 1 AM <i>—</i>&nbsp;</span><span>Something at 1 AM <i>—</i>&nbsp;</span><span>Something at 1 AM <i>—</i>&nbsp;</span><span>Something at 1 AM <i>—</i>&nbsp;</span></div></div>
-  </div>
-  <span class="arrow-panel magnetic" aria-hidden="true"><span class="arr"><svg><use href="#i-arrow"></use></svg><svg><use href="#i-arrow"></use></svg></span></span>
-</a>
-
-<!-- ===================================================================== FOOTER -->
-<footer class="footer" id="contact">
-  <div class="grid foot-grid grid-reveal">
-    <!-- the address comes from the CONTACT constant in assets/site.js -->
-    <div class="foot-link"><span class="label dim">Contact</span><span class="email" data-email="" style="word-break:break-all;">adityadwivedi0409@gmail.com</span><button type="button" class="copy-btn" data-copy="">Copy address</button></div>
-    <!-- PLACEHOLDER: Socials need real URLs -->
-    <a class="foot-link panel-link" href="mailto:adityadwivedi0409@gmail.com?subject=Where%20are%20you%20on%20socials" style="flex-direction: column; align-items: stretch;"><span class="label dim">Follow<span class="badge">URL TBD</span></span><span style="display:flex; justify-content:space-between; align-items:center; gap:12px;"><span>Socials</span><span class="arr" aria-hidden="true"><svg><use href="#i-ext"></use></svg><svg><use href="#i-ext"></use></svg></span></span></a>
-    <nav class="foot-nav" aria-label="Footer">
-      <a href="/events">Events</a>
-      <a href="/build-night">Build Night</a>
-      <a href="/sponsor">Sponsor</a>
-      <a href="#about" data-anchor="">About</a>
-    </nav>
-    <a class="foot-link panel-link" href="#top" data-anchor="" style="flex-direction: column; align-items: stretch;"><span class="label dim">Up</span><span style="display:flex; justify-content:space-between; align-items:center; gap:12px;"><span>Back to top</span><span class="arr" aria-hidden="true" style="transform:rotate(-90deg)"><svg><use href="#i-arrow"></use></svg><svg><use href="#i-arrow"></use></svg></span></span></a>
-    <div class="foot-mark">
-      <div class="display" aria-label="Founder Square">FOUNDER SQUARE</div>
-      <div class="line label"><span>Student-run at UC Berkeley. Build Night 01 is Saturday, November 14, 2026.</span><span>The room where Berkeley builds.</span></div>
+<footer class="footer">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <span class="foot-name"><svg class="mark" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 0h80v20h-80zM0 20h20v60h-20zM30 30h50v20h-50zM50 50h30v10h-30zM30 60h50v20h-50z"/></svg>Founder Square</span>
+      <p>Student-run at UC Berkeley. The room where Berkeley builds.</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <!-- the address comes from the CONTACT constant in assets/site.js -->
+      <a href="mailto:adityadwivedi0409@gmail.com" data-email="">adityadwivedi0409@gmail.com</a>
+      <br><button type="button" class="copy-btn" data-copy="">Copy address</button>
+    </div>
+    <div>
+      <h3>Pages</h3>
+      <nav aria-label="Footer"><a href="/">Home</a><a href="/events">Events</a><a href="/build-night">Build Night</a><a href="/sponsor">Sponsor</a></nav>
+    </div>
+    <div>
+      <h3>Follow</h3>
+      <!-- PLACEHOLDER: social links -->
+      <p>Socials coming soon.</p>
     </div>
   </div>
-  <div class="foot-bottom label">
-    <span>© 2026 Founder Square · Student-run, not a university program</span>
-    <span>Build Night 01 · Sat, Nov 14, 2026</span>
-  </div>
+  <div class="wrap foot-bottom"><span>© 2026 Founder Square · Student-run, not a university program</span><span>Build Night 01 · Sat, Nov 14, 2026</span></div>
+  <div class="palms" aria-hidden="true"></div>
 </footer>
-
-<script src="/vendor/gsap.min.js"></script>
-<script src="/vendor/ScrollTrigger.min.js"></script>
-<script src="/vendor/SplitText.min.js"></script>
-<script src="/vendor/lenis.min.js"></script>
 <script src="/assets/site.js"></script>
 </body>
 </html>
