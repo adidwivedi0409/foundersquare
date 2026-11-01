@@ -36,4 +36,4 @@ python3 -m http.server 8000
 
 Production deploys from `main` through Vercel. Pull request branches may receive Vercel preview deployments.
 
-The `brand/` folder retains earlier design references and original logo assets. Current site styles are in `assets/site.css`. Local `.taste-skill/` inspection reports are ignored by Git.
+The brand system (logo files, tokens, identity, language, motion and imagery guides, component guidelines) is in `brand/`; live previews are in the [Founder Square design system](https://claude.ai/artifact/1Tdh7sFEqkBQz2f3n5RFuE). Site styles are in `assets/site.css`. Local `.taste-skill/` inspection reports are ignored by Git.

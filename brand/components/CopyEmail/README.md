@@ -1,7 +1,5 @@
 # CopyEmail
 
-The address as selectable mono text with a "Copy" control under it.
+The address as a link with a small "Copy address" button under it, in the footer.
 
-**Markup.** `<span class="email" data-email>` (selects whole on click) and `<button class="copy-btn" data-copy>`. On success the button reads "Copied" for 1.6s; if the clipboard is refused, select the address instead.
-
-**Rules.** Always show the address itself; a mailto link is a convenience that may do nothing. Until the real inbox exists it is a placeholder: wrap it with a `Badge`.
+**Behaviour.** `FounderSquare.copyButtons(root, address)` wires every `[data-copy]` button: it copies the address and reads "Copied" for 1.6s; if the clipboard is refused it shows the address so it can be selected. `black-raised` fill, red on hover.

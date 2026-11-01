@@ -2,57 +2,49 @@
 
 ## The name
 
-- **Founder Square.** Two words, title case, no "The", no apostrophe, never "Founders Square" or "FS" in public copy.
-- In running text and the header, set the name in type (`brand` style, or whatever style the sentence is in). Use the logo files only where the logo stands alone.
-- Uppercase only in the wordmark and the footer mark: FOUNDER SQUARE, two lines, FOUNDER over SQUARE.
-- Domain: foundersquare.org.
-- Tagline: "The room where Berkeley builds." Use it under the logo or the hero wordmark, in a mono `label`, `fg-2`. Don't make up new taglines per campaign.
+- **Founder Square** in running text and titles: two words, title case, no "The".
+- The logo spells it **founder square**, all lowercase. That casing belongs to the logo only.
+- Domain foundersquare.org. Email team@foundersquare.org.
+- Describe us as "a student-run community at UC Berkeley". In the footer: "Student-run, not a university program".
 
-## The mark
+## The logo
 
-The mark is an F drawn on an 8×8 module grid:
+The logo is the red mark followed by "founder square" in Plus Jakarta Sans ExtraBold at −0.03em, one colour. Use the outlined files; never retype it.
 
-| Part | Modules | Notes |
-| --- | --- | --- |
-| Top bar | 8 × 2 | full width |
-| Stem | 2 × 6 | under the bar, left edge |
-| Channels | 1 wide | between bar, stem and block; the panel grid's gutter, scaled up |
-| Block | 5 × 5 | bottom right |
-| Notch | 2 × 1 | cut from the block's left edge, rows 5–6 |
+| Part | Spec |
+| --- | --- |
+| Mark | An F on an 8×8 module grid: 8×2 top bar, 2×6 stem, 5×5 block, 1-module channels, a 2×1 notch cut from the block's left edge |
+| Gap | 2 modules between mark and wordmark |
+| Wordmark | x-height 3.4 modules, baseline 6.3 modules down the mark, 5.5 marks wide |
+| Colour | `red` (#e42425). White on red or photos too busy for red; black only for one-colour print |
 
-It is one colour, always: `fg` on `bg`. The channels and the notch are cut out, so the ground shows through.
-
-## Lockups
+## Files
 
 | File | Use |
 | --- | --- |
-| `logo-horizontal-dark.svg` / `-light.svg` | Default. Caps span the block (modules 3–8), 2 modules after the mark. |
-| `logo-stacked-dark.svg` / `-light.svg` | Square spaces, the footer, slides, social headers. FOUNDER on rows 0–3, SQUARE on rows 5–8. |
-| `mark-dark.svg` / `-light.svg` | The site header, avatars, small spaces, sponsor co-branding. |
-| `favicon.svg` | Browser tabs and app icons: the mark full-bleed on an `ink` tile. |
-
-`-dark` files are drawn in `bone` for dark grounds; `-light` files in `ink` for paper. Never put a `-dark` file on paper.
+| `logo-red.svg` | Default, on `bg`, white or `black` (the footer) |
+| `logo-white.svg` | On `red` fills |
+| `logo-black.svg` | One-colour printing on white |
+| `mark-red.svg` / `-white` / `-black` | Avatars, stickers, small spaces |
+| `favicon.svg` | Browser tabs: the red mark on transparent |
 
 ## Clear space and size
 
-- Keep at least 2 modules (a quarter of the mark's height) clear on every side. In the site header the mark sits in its own panel with 20px around it.
-- Minimum: mark 16px (each module 2px, so it stays sharp), horizontal lockup 20px tall, stacked lockup 32px tall.
+- Keep 2 modules (a quarter of the mark's height) clear around the logo.
+- On the site the logo is 29px tall in the header (22px on phones) and 25px in the footer. Don't go below 20px tall for the full logo or 16px for the mark.
 
 ## Don't
 
-- Recolour the mark amber, add a second colour, or fill the channels.
-- Put it on a line-art scene, a photo, a gradient or an amber panel.
-- Stretch, rotate, round the corners, outline, or add a shadow.
-- Retype the wordmark, change its tracking, or set it in lowercase.
-- Lock up the mark with "Build Night" as if it were one logo. Events are named in type beside it.
+- Retype the wordmark, capitalise it, or set it in another font.
+- Recolour it outside red, white and black, add a tile, round the corners, outline it or add a shadow.
+- Change the gap or the mark's proportions, or use the wordmark without the mark.
+- Put the red logo on a red fill or a photograph.
 
-## Events and editions
+## Events
 
-- Events are named plainly and numbered with two digits: "Build Night 01". Themed editions add a colon and the theme: "Build Night 03: Agents".
-- The series code is mono: "Edition 01" for Build Nights, "Side 01" for everything else (firesides, Ship Week).
-- On images, an edition is its numeral in the `glyph` line-art scene ("01", "S1"), hatched when confirmed, a dashed outline while it is a placeholder.
+- Name events in full the first time on a page: "Agent's After Dark Build Night". "Build Night" is fine after that.
+- Dates read "November 12, 2026 · UC Berkeley". Unconfirmed details say so: "Schedule coming soon", "Room shared with registrants".
 
 ## Sponsors
 
-- Sponsor names are set in type until we have their files: "Presenting sponsor: [Name]", with a `Badge` while unconfirmed.
-- Never place a sponsor logo inside our mark's clear space or in an amber panel. Sponsor logos sit in a panel of their own, one colour (`fg`), at the same height as our horizontal lockup.
+- Sponsor names appear in type until we have their files. Sponsor logos sit in their own space at the height of our logo, never locked up with it.
