@@ -27,6 +27,8 @@ The logo is the red mark followed by "founder square" in Plus Jakarta Sans Extra
 | `logo-black.svg` | One-colour printing on white |
 | `mark-red.svg` / `-white` / `-black` | Avatars, stickers, small spaces |
 | `favicon.svg` | Browser tabs: the red mark on transparent |
+| `profile/profile-red.png` | Profile picture, 2048px: white mark on red. The default for social accounts |
+| `profile/profile-white.png` | Profile picture, 2048px: red mark on white, where a red avatar would clash |
 
 ## Clear space and size
 
