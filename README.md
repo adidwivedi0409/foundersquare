@@ -11,7 +11,7 @@ Vercel's `cleanUrls` configuration serves the HTML pages without file extensions
 
 ## Design
 
-The site retains the original Founder Square logo and black footer, with serif headings, white and pale red surfaces, and muted red actions. The alternative sans-serif comparison preview is not part of this repository change.
+The site uses the Founder Square logo exactly as designed: the red mark with "founder square" in Plus Jakarta Sans ExtraBold, outlined in `brand/logos/logo-red.svg`. Its red, `#e42425`, is the only red on the site: logo, buttons, bands and focus rings. Headings are serif on white and pale red surfaces.
 
 The homepage photograph is Francisco Delgado's “Sunrise by the Ferry Building,” used under the [Unsplash License](https://unsplash.com/photos/HdtcZUI3Qvk). Its credit appears in the footer. It depicts San Francisco Bay, not the event venue. Other SF photo galleries have been removed.
 

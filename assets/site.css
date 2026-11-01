@@ -1,4 +1,4 @@
-:root{--bg:#faf6f5;--ink:#211b1b;--accent:#ad3b3b;--surface:#f1e3e1;--blue:#eee5e3;--white:#ffffff;--muted:#655353;--display:'Newsreader',Georgia,serif;--text:'DM Sans',Arial,sans-serif;--small:14px;--body:17px;--lead:clamp(23px,2.4vw,34px);--heading:clamp(36px,4.5vw,64px);--margin:clamp(22px,4vw,64px)}
+:root{--bg:#faf6f5;--ink:#211b1b;--accent:#e42425;--surface:#f1e3e1;--blue:#eee5e3;--white:#ffffff;--muted:#655353;--display:'Newsreader',Georgia,serif;--text:'DM Sans',Arial,sans-serif;--small:14px;--body:17px;--lead:clamp(23px,2.4vw,34px);--heading:clamp(36px,4.5vw,64px);--margin:clamp(22px,4vw,64px)}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:30px}
@@ -239,7 +239,7 @@ nav{gap:15px;font-size:14px}
 @media(max-width:600px){.page-head{padding-bottom:95px}.future{margin-top:95px}}
 .place-ribbon img{animation:bay-drift 24s ease-in-out infinite alternate}.place-ribbon{overflow:hidden}
 /* Preserve the original Founder Square identity. */
-:root{--red:#d6282b;--black:#111111}
+:root{--red:#e42425;--black:#111111}
 .brand .mark{height:29px;width:29px;color:var(--red);flex-shrink:0}.brand{gap:10px}.hero-copy{justify-content:flex-end}.hero-event .button{background:var(--red)}
 .original-footer{width:100%;max-width:none;background:var(--black);color:#d6d6d6;padding:64px 0 28px}.foot-in{display:grid;grid-template-columns:2fr 1.5fr 1fr 1fr;gap:32px}.foot-name{display:inline-flex;align-items:center;gap:10px;color:#fff;font-family:var(--text);font-weight:600;font-size:20px}.foot-name .mark{width:25px;height:25px;color:var(--red)}.foot-brand p{margin-top:12px}.original-footer h3{font-family:var(--text);font-size:16px;font-weight:600;letter-spacing:0;color:#fff;margin-bottom:16px}.original-footer nav{display:grid;gap:3px}.original-footer nav a{padding:3px 0}.original-footer a{color:#fff}.original-footer a:hover{color:var(--red)}.copy-btn{margin-top:12px;background:#292929;color:#fff;border:0;padding:9px 13px;cursor:pointer;font-size:14px}.copy-btn:hover{background:var(--red)}.foot-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:48px;font-size:13px;color:#b9b9b9}.photo-credits{margin-top:20px}.photo-credits details{padding:0;background:transparent;margin:0}.photo-credits summary{font-size:13px;color:#b9b9b9}.photo-credits p{font-size:13px;max-width:900px}.register-band{background:var(--black)}.register-band h2{color:#fff}.register-band .button{background:var(--red);color:#fff}
 @media(max-width:900px){.foot-in{grid-template-columns:1fr 1fr}.hero-copy{display:flex}}
@@ -250,3 +250,9 @@ nav{gap:15px;font-size:14px}
 @media(max-width:900px){.band-inner h2{max-width:650px}.contact-field{margin-bottom:90px}}
 @media(max-width:600px){.band-inner h2{font-size:30px}.event-info h3{font-size:24px}.event-info{min-width:0}.event-row{grid-template-columns:64px 1fr;gap:18px}.event-title{font-size:38px!important}.schedule-pending{margin-top:25px;min-height:160px;padding:30px}.hero-event p{font-size:24px}.contact-field{margin-bottom:75px}}
 .hero-event h2{font-size:clamp(30px,2.4vw,34px);line-height:1.1;margin-bottom:18px}.hero-event p{font-family:var(--text);font-size:var(--body);line-height:1.5}.hero-event{max-width:440px}
+/* The logo is the team's red lockup (mark + "founder square" in Plus Jakarta Sans
+   ExtraBold), outlined in brand/logos/logo-red.svg. The site's one red is the
+   logo red, #e42425: white on it is 4.59:1. */
+.brand .logo{display:block;height:29px;width:auto}
+.foot-name .logo{display:block;height:25px;width:auto}
+@media(max-width:600px){.brand .logo{height:22px}}
