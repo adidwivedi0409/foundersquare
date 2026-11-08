@@ -1,7 +1,7 @@
 // Every outside link in one place. Leave a value empty and the matching
 // buttons stay hidden (the email fallbacks show instead).
 const LINKS = {
-  luma: '',           // the Luma event page for the next event, e.g. https://luma.com/xxxxxxx
+  luma: 'https://luma.com/x63yuq1r',   // Agents After Dark Build Night, Mon Nov 16 2026
   partiful: '',       // the Partiful event page
   lumaCalendar: '',   // the Founder Square calendar on Luma
   instagram: '',
@@ -33,7 +33,7 @@ document.querySelectorAll('[data-copy]').forEach(button => {
   document.querySelectorAll('[data-link]').forEach(a => {
     const url = LINKS[a.dataset.link];
     if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.hidden = false; }
-    else a.remove();
+    else (a.closest('li') || a).remove();
     if (url && ['instagram', 'x', 'linkedin', 'lumaCalendar'].includes(a.dataset.link)) anySocial = true;
     if (url && ['luma', 'partiful'].includes(a.dataset.link)) anyEvent = true;
   });
