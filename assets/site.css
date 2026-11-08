@@ -256,3 +256,60 @@ nav{gap:15px;font-size:14px}
 .brand .logo{display:block;height:29px;width:auto}
 .foot-name .logo{display:block;height:25px;width:auto}
 @media(max-width:600px){.brand .logo{height:22px}}
+
+/* ---- Sponsors, contact line, admin, platform buttons, socials ---- */
+.admin-link{color:var(--muted);font-size:var(--small)}
+.actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.inline-link{text-decoration:underline;text-underline-offset:4px}
+.sponsor-list{padding-bottom:130px}
+.sponsor-list>h2{font-size:var(--lead);margin-bottom:36px}
+.sponsor-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sponsor-card{background:var(--surface);padding:30px 28px;display:flex;flex-direction:column;gap:6px}
+.sponsor-card h3{font-size:clamp(26px,2.4vw,34px)}
+.sponsor-card h3 a:hover{text-decoration:underline}
+.sponsor-card .secondary{margin:0 0 10px}
+.sponsor-card p:last-child{margin:0}
+.sponsor-logo{height:36px;width:auto;max-width:180px;object-fit:contain;margin-bottom:14px}
+.contact-field{margin-bottom:0}
+.contact-form{max-width:640px}
+select{width:100%;padding:12px 14px;border:1px solid var(--muted);background:var(--white);color:var(--ink);border-radius:0;appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+select:focus{outline:2px solid var(--accent);outline-offset:2px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.contact-form .button{justify-self:start}
+.contact-form button[disabled]{opacity:.6;cursor:default;transform:none}
+.form-status{margin:0;min-height:1.6em}
+.form-status.ok{color:#1d6b2f}
+.form-status.err{color:var(--accent)}
+.platform-buttons{display:flex;flex-wrap:wrap;gap:12px;flex-shrink:0}
+.platform-links{display:flex;flex-direction:column;align-items:flex-start}
+.button.platform svg{width:18px;height:18px;margin-right:10px}
+.button.luma{background:#111}
+.button.partiful{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.social-links{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.social-links a{display:inline-flex;align-items:center;gap:10px}
+.social-links svg{width:18px;height:18px;flex:none}
+.social-fallback{margin:0}
+/* admin */
+.admin{padding-block:40px 110px;min-height:60vh}
+.admin h1{font-size:clamp(38px,5vw,64px);margin-bottom:20px}
+.admin-form{max-width:420px}
+.admin-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:30px}
+.admin-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.admin-toggle{display:flex;align-items:center;gap:8px;font-size:var(--small)}
+.admin-toggle input{width:auto}
+.admin-note{background:var(--surface);padding:14px 18px;font-size:var(--small);margin-bottom:24px}
+.admin-empty{color:var(--muted)}
+.messages{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.message{background:var(--white);border:1px solid var(--surface);padding:24px 26px}
+.message.handled{opacity:.6}
+.message-head{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:10px}
+.message-head time{color:var(--muted);font-size:var(--small)}
+.message-interest{display:inline-block;background:var(--surface);padding:4px 10px;font-size:var(--small);margin:0 0 12px}
+.message-body{white-space:normal;max-width:760px;margin-bottom:18px}
+.message-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.message-actions .button{min-height:44px;padding:10px 18px;font-size:15px}
+.text-link[type=button]{background:none;border:0;padding:8px 0;cursor:pointer;color:inherit;text-decoration:underline;text-underline-offset:5px}
+@media(max-width:900px){.sponsor-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.sponsor-grid{grid-template-columns:1fr}.sponsor-list{padding-bottom:75px}.actions{gap:14px}.platform-buttons{width:100%}.platform-buttons .button{width:100%}.admin{padding-block:20px 70px}.message{padding:20px}}
+/* five header links need two rows on a phone; Admin stays in the footer there */
+@media(max-width:600px){.header{height:auto;min-height:80px;padding-block:14px;align-items:center}.header nav{flex-wrap:wrap;justify-content:flex-end;gap:2px 14px;max-width:62%}.header nav a{white-space:nowrap;padding:6px 0}.header .admin-link{display:none}}
