@@ -384,3 +384,46 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
 /* phone header: mark only, three links, the red button */
 .logo-mark{display:none}
 @media(max-width:600px){.brand .logo{display:none}.brand .logo-mark{display:block;width:26px;height:26px}.header nav{flex-wrap:nowrap;gap:12px;font-size:13px}.header nav a[href="/sponsor"]{display:none}}
+
+/* ---- sticky header bar: everything stays one click away ---- */
+.hdr-bar{position:sticky;top:0;z-index:30;background:rgba(250,246,245,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(33,27,27,.06)}
+.hdr-bar .header{height:76px}
+@media(max-width:600px){.hdr-bar .header{height:64px}}
+.sq-pin{top:0}
+
+/* ---- space: what is inside the square ---- */
+.sq-inside{display:none}
+.space{position:absolute;inset:0;opacity:var(--inside,0);pointer-events:var(--inside-events,none);background:radial-gradient(ellipse at 50% 40%,#2a0c10 0%,#120608 45%,#070304 100%);color:#fff;overflow:hidden}
+.space-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.space-top,.space-bottom{position:absolute;left:0;right:0;display:flex;justify-content:space-between;gap:20px;padding:0 var(--margin);z-index:3}
+.space-top{top:96px}
+.space-bottom{bottom:28px;flex-wrap:wrap}
+.space .sq-kicker{margin:0;opacity:.75}
+.space-events{position:absolute;inset:0;z-index:2}
+.planet{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%) translate(var(--px,0),var(--py,0));display:flex;align-items:center;gap:26px;color:#fff;text-decoration:none;transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .5s}
+.planet:hover{text-decoration:none}
+.orb{display:block;width:var(--orb,150px);height:var(--orb,150px);border-radius:50%;flex:none;background:radial-gradient(circle at 32% 30%,#ff8a7a 0%,#e42425 38%,#7c1013 72%,#2b0507 100%);box-shadow:0 0 40px rgba(228,36,37,.45),0 0 120px rgba(228,36,37,.25),inset -18px -18px 40px rgba(0,0,0,.45);animation:drift 9s ease-in-out infinite}
+.planet.small{--orb:64px}
+.planet.small .orb{background:radial-gradient(circle at 32% 30%,#d9c7c2 0%,#8c6f6b 45%,#3a2624 80%,#160a0a 100%);box-shadow:0 0 24px rgba(255,255,255,.12);animation-duration:12s}
+.planet.dim{opacity:.7}
+.planet.dim .orb{animation-duration:15s}
+.planet-card{display:grid;gap:6px;max-width:380px}
+.planet-card time{font-size:var(--small);letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.planet-card strong{font-family:var(--display);font-weight:400;font-size:clamp(26px,2.8vw,40px);line-height:1.05;letter-spacing:-.03em}
+.planet.small .planet-card strong{font-size:22px}
+.planet-meta{font-size:var(--small);opacity:.85}
+.planet-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:10px}
+.planet-actions .button{min-height:44px;padding:10px 18px;font-size:15px}
+.planet-go{font-size:15px;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:2px;transition:border-color .2s}
+.planet:hover .planet-go{border-color:#fff}
+.planet:hover .orb{box-shadow:0 0 60px rgba(228,36,37,.7),0 0 160px rgba(228,36,37,.35),inset -18px -18px 40px rgba(0,0,0,.45)}
+.planet.small:hover .orb{box-shadow:0 0 40px rgba(255,255,255,.25)}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.space.warping .planet{opacity:0;transform:translate(-50%,-50%) scale(.6)}
+.space.warping .planet.target{opacity:1;transform:translate(-50%,-50%) scale(1.9)}
+.space.warping .space-top,.space.warping .space-bottom{opacity:0;transition:opacity .4s}
+.warp-flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:4;transition:opacity .35s ease-in}
+.space.warping .warp-flash{opacity:1;transition-delay:.55s}
+@media(prefers-reduced-motion:reduce){.space{position:static;opacity:1;pointer-events:auto;min-height:80vh;padding:40px 0}.space-canvas{display:none}.space-top,.space-bottom{position:static;padding:20px var(--margin)}.space-events{position:static;display:grid;gap:30px;padding:0 var(--margin)}.planet{position:static;transform:none}.orb{animation:none}}
+@media(max-width:900px){.planet.main{--x:50%!important;--y:44%!important;flex-direction:column;text-align:center;gap:18px}.planet.main .planet-card{justify-items:center}.planet.small{--x:22%!important;--y:84%!important}.planet.dim{--x:78%!important;--y:84%!important}.planet.small .planet-card{display:none}.space-top{top:84px}}
+@media(max-width:600px){.planet.main{--y:46%!important}.orb{--orb:110px}.planet.small{--orb:44px}.planet-card{max-width:88vw}.planet-card strong{font-size:30px}.planet-actions{justify-content:center}.space-bottom{justify-content:center}}

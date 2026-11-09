@@ -14,6 +14,7 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="hdr-bar">
 <header class="header wrap">
 <a class="brand" href="/" aria-label="Founder Square home">
 <img class="logo" src="/brand/logos/logo-red.svg" alt="" width="194" height="29">
@@ -27,6 +28,7 @@
 </nav>
 <a class="button hdr-cta" href="/sponsor#sponsorship-form">Sponsor us</a>
 </header>
+</div>
 <main id="main">
 
 <!-- The Square: one red square with the logo; scrolling takes you inside it, where the events are. -->
@@ -38,19 +40,38 @@
 <p class="sq-tag">Student-run at UC Berkeley</p>
 </div>
 <p class="sq-hint" aria-hidden="true">Scroll into the square<span class="sq-arrow">↓</span></p>
-<div class="sq-inside">
-<p class="sq-kicker">Upcoming events</p>
-<article class="sq-event">
-<time datetime="2026-11-16T16:00-08:00">Monday, November 16 · 4–9 PM</time>
-<h2>Agent’s After Dark Build Night</h2>
-<p>Chou Hall N100, Berkeley Haas. Free for UC Berkeley students, food included, $3,000+ in prizes.</p>
-<div class="actions">
-<a class="button light" data-link="luma" href="#" hidden>Register on Luma ↗</a>
-<a class="button light" data-link-fallback="hide" href="/build-night#signup">Register ↗</a>
-<a class="text-link inverse" href="/build-night">Event details ↗</a>
+<div class="space" aria-label="Upcoming events, floating in space">
+<canvas class="space-canvas" aria-hidden="true"></canvas>
+<div class="space-top">
+<p class="sq-kicker">Upcoming events · click one to fly there</p>
 </div>
-</article>
-<a class="text-link inverse sq-all" href="/events">All events ↗</a>
+<div class="space-events">
+<a class="planet main" href="/build-night" data-warp data-depth="1" style="--x:34%;--y:52%">
+<span class="orb" aria-hidden="true"></span>
+<span class="planet-card">
+<time datetime="2026-11-16T16:00-08:00">Mon, Nov 16 · 4–9 PM</time>
+<strong>Agent’s After Dark Build Night</strong>
+<span class="planet-meta">Chou Hall N100, Berkeley Haas · Free · $3,000+ in prizes</span>
+<span class="planet-actions">
+<span class="button light" data-link="luma" data-stop hidden>Register on Luma ↗</span>
+<span class="planet-go">Fly to the event →</span>
+</span>
+</span>
+</a>
+<a class="planet small" href="/events" data-warp data-depth="1.6" style="--x:76%;--y:30%">
+<span class="orb" aria-hidden="true"></span>
+<span class="planet-card"><time>2027</time><strong>Build Night 02</strong><span class="planet-meta">Date to be announced</span></span>
+</a>
+<a class="planet small dim" href="/events" data-warp data-depth="2.2" style="--x:70%;--y:78%">
+<span class="orb" aria-hidden="true"></span>
+<span class="planet-card"><time>2027</time><strong>Founder Fireside</strong><span class="planet-meta">Date to be announced</span></span>
+</a>
+</div>
+<div class="space-bottom">
+<a class="text-link inverse" href="/events">All events ↗</a>
+<a class="text-link inverse" href="/sponsor#sponsorship-form">Sponsor an event ↗</a>
+</div>
+<div class="warp-flash" aria-hidden="true"></div>
 </div>
 </div>
 </section>
