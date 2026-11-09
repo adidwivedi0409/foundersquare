@@ -122,7 +122,7 @@ document.querySelectorAll('[data-copy]').forEach(button => {
   if (!space || !canvas || !pin) return;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const ctx = canvas.getContext('2d');
-  let W = 0, H = 0, dpr = 1, stars = [], speed = 0.0035, target = 0.0035, running = false, raf = 0;
+  let W = 0, H = 0, dpr = 1, stars = [], fixed = [], speed = 0.0035, target = 0.0035, running = false, raf = 0;
   function size() {
     dpr = Math.min(devicePixelRatio || 1, 2);
     W = canvas.clientWidth; H = canvas.clientHeight;
@@ -130,12 +130,19 @@ document.querySelectorAll('[data-copy]').forEach(button => {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const n = Math.round(Math.min(520, (W * H) / 2600));
     stars = Array.from({ length: n }, () => ({ x: Math.random() * 2 - 1, y: Math.random() * 2 - 1, z: Math.random(), pz: 0 }));
+    // a fixed, twinkling layer so the small window already reads as a night sky
+    fixed = Array.from({ length: Math.round(n * 0.6) }, () => ({ x: Math.random() * W, y: Math.random() * H, r: 0.4 + Math.random() * 1.3, a: Math.random() * 6.28, s: 0.6 + Math.random() * 1.4 }));
   }
   function frame() {
     speed += (target - speed) * 0.08;
     ctx.fillStyle = speed > 0.02 ? 'rgba(7,3,4,0.35)' : 'rgba(7,3,4,0.9)';
     ctx.fillRect(0, 0, W, H);
-    const cx = W / 2, cy = H / 2, f = Math.min(W, H) * 0.9;
+    const cx = W / 2, cy = H / 2, f = Math.min(W, H) * 0.9, t = performance.now() / 1000;
+    for (const k of fixed) {
+      const tw = 0.55 + 0.45 * Math.sin(t * k.s + k.a);
+      ctx.fillStyle = `rgba(255,240,236,${(tw * 0.9).toFixed(3)})`;
+      ctx.beginPath(); ctx.arc(k.x, k.y, k.r, 0, 6.283); ctx.fill();
+    }
     for (const s of stars) {
       s.pz = s.z; s.z -= speed;
       if (s.z <= 0.02) { s.x = Math.random() * 2 - 1; s.y = Math.random() * 2 - 1; s.z = 1; s.pz = 1; }
