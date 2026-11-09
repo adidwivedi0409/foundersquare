@@ -14,11 +14,16 @@
     list.innerHTML = shown.map(m => `
       <li class="message${m.handled ? ' handled' : ''}" data-id="${esc(m.id)}">
         <div class="message-head">
-          <div><strong>${esc(m.name)}</strong>${m.company ? ` <span class="secondary">· ${esc(m.company)}</span>` : ''}</div>
+          <div><strong>${esc(m.name)}</strong>${m.role ? ` <span class="secondary">· ${esc(m.role)}</span>` : ''}${m.company ? ` <span class="secondary">· ${esc(m.company)}</span>` : ''}</div>
           <time datetime="${new Date(m.ts).toISOString()}">${when(m.ts)}</time>
         </div>
-        ${m.interest ? `<p class="message-interest">${esc(m.interest)}</p>` : ''}
-        <p class="message-body">${esc(m.message).replace(/\n/g, '<br>')}</p>
+        <div class="message-tags">
+          ${m.event ? `<span class="tag">${esc(m.event)}</span>` : ''}
+          ${(m.interests && m.interests.length ? m.interests : (m.interest ? [m.interest] : [])).map(i => `<span class="tag">${esc(i)}</span>`).join('')}
+          ${m.budget ? `<span class="tag">Budget: ${esc(m.budget)}</span>` : ''}
+          ${m.url ? `<a class="tag" href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url.replace(/^https?:\/\//, ''))} ↗</a>` : ''}
+        </div>
+        ${m.message ? `<p class="message-body">${esc(m.message).replace(/\n/g, '<br>')}</p>` : '<p class="message-body secondary">No message, just the form.</p>'}
         <div class="message-actions">
           <a class="button" href="mailto:${esc(m.email)}?subject=${encodeURIComponent('Re: sponsoring Founder Square')}">Reply to ${esc(m.email)} ↗</a>
           <button class="text-link" type="button" data-handled="${m.handled ? '0' : '1'}">${m.handled ? 'Mark as open' : 'Mark as handled'}</button>

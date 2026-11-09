@@ -85,17 +85,20 @@ const cookieHeader = (value, maxAge) => `fs_admin=${value}; Path=/; HttpOnly; Se
 async function sendEmail(msg) {
   if (!RESEND_API_KEY) return { sent: false, reason: 'no RESEND_API_KEY' };
   const text = [
-    `New sponsor message on foundersquare.org`, ``,
-    `From: ${msg.name}${msg.company ? ' (' + msg.company + ')' : ''}`,
+    `New sponsorship request on foundersquare.org`, ``,
+    `From: ${msg.name}${msg.role ? ', ' + msg.role : ''}${msg.company ? ' at ' + msg.company : ''}`,
     `Email: ${msg.email}`,
-    msg.interest ? `Interested in: ${msg.interest}` : null, ``,
-    msg.message, ``,
+    msg.url ? `Website: ${msg.url}` : null,
+    msg.event ? `Event: ${msg.event}` : null,
+    msg.interests && msg.interests.length ? `Could bring: ${msg.interests.join(', ')}` : (msg.interest ? `Interested in: ${msg.interest}` : null),
+    msg.budget ? `Budget: ${msg.budget}` : null, ``,
+    msg.message || '(no message)', ``,
     `Received ${new Date(msg.ts).toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })} Pacific. Reply to this email to answer them; the full history is at https://foundersquare.org/admin`,
   ].filter(l => l !== null).join('\n');
   const r = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: 'Bearer ' + RESEND_API_KEY, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from: MAIL_FROM, to: [MAIL_TO], reply_to: msg.email, subject: `Sponsor inquiry: ${msg.name}${msg.company ? ', ' + msg.company : ''}`, text }),
+    body: JSON.stringify({ from: MAIL_FROM, to: [MAIL_TO], reply_to: msg.email, subject: `Sponsorship request: ${msg.company || msg.name}`, text }),
   });
   if (!r.ok) return { sent: false, reason: 'resend ' + r.status + ' ' + (await r.text()).slice(0, 200) };
   return { sent: true };

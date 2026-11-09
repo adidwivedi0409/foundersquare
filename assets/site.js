@@ -53,9 +53,11 @@ document.querySelectorAll('[data-copy]').forEach(button => {
   const button = form.querySelector('button[type=submit]');
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(form).entries());
-    if (!data.name.trim() || !data.message.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-      status.className = 'form-status err'; status.textContent = 'Please add your name, a working email and a message.'; return;
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+    data.interests = fd.getAll('interests');
+    if (!data.name.trim() || !(data.company || '').trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      status.className = 'form-status err'; status.textContent = 'Please add your name, your company and a working email.'; return;
     }
     button.disabled = true; status.className = 'form-status'; status.textContent = 'Sending…';
     try {
@@ -63,10 +65,10 @@ document.querySelectorAll('[data-copy]').forEach(button => {
       const out = await r.json().catch(() => ({}));
       if (r.ok && out.ok) {
         form.reset(); status.className = 'form-status ok';
-        status.textContent = 'Got it. The team has your message and will reply from team@foundersquare.org.';
+        status.textContent = 'Got it. The whole team has your request and will reply from team@foundersquare.org within a few days.';
       } else throw new Error(out.error || 'Could not send');
     } catch (err) {
-      const body = encodeURIComponent(`Name: ${data.name}\nCompany: ${data.company}\nEmail: ${data.email}\nInterested in: ${data.interest}\n\n${data.message}`);
+      const body = encodeURIComponent(`Name: ${data.name}${data.role ? ', ' + data.role : ''}\nCompany: ${data.company}\nWebsite: ${data.url || ''}\nEmail: ${data.email}\nEvent: ${data.event || ''}\nCould bring: ${data.interests.join(', ')}\nBudget: ${data.budget || ''}\n\n${data.message}`);
       status.className = 'form-status err';
       status.innerHTML = `${err.message.replace(/</g, '&lt;')} <a class="inline-link" href="mailto:team@foundersquare.org?subject=Founder%20Square%20sponsorship&body=${body}">Send it by email instead ↗</a>`;
     } finally { button.disabled = false; }
