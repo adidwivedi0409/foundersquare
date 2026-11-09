@@ -442,7 +442,7 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
    Space look for the whole site. The home page keeps its light intro;
    everything after the square, and every other page, is in space.
    ===================================================================== */
-.sq{display:none}
+.sq{background:transparent}
 .space-page{--bg:#0a0507;--ink:#f6efed;--muted:#b7a4a1;--surface:rgba(255,255,255,.055);--blue:#1a0c0f;--white:#ffffff;--line:rgba(255,255,255,.12)}
 .space-page body,body.space-page{background:var(--bg);color:var(--ink)}
 .space-page::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:
