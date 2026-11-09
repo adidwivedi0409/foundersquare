@@ -346,3 +346,41 @@ select:focus{outline:2px solid var(--accent);outline-offset:2px}
 .message-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .tag{display:inline-block;background:var(--surface);padding:4px 10px;font-size:13px;color:var(--ink);text-decoration:none}
 a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
+
+/* ---- The Square: scroll into it ---- */
+.header{gap:24px}
+.header nav{margin-left:auto}
+.hdr-cta{min-height:44px;padding:10px 18px;font-size:15px;flex-shrink:0}
+.sq-stage{height:260vh;position:relative}
+.sq-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center;background:var(--bg)}
+.sq-pin>*{grid-area:1/1}
+.sq-pin{--sq-side:min(46vmin,420px)}
+.sq{width:var(--sq-side);aspect-ratio:1;background:var(--accent);transform:scale(var(--sq-scale,1));will-change:transform}
+.sq-front{display:grid;justify-items:center;gap:14px;text-align:center;opacity:var(--front,1);transform:translateY(calc(var(--p,0)*-40px));pointer-events:none}
+.sq-logo{width:min(34vmin,300px);height:auto}
+.sq-tag{color:#fff;font-size:var(--small);letter-spacing:.02em;margin:0}
+.sq-hint{position:absolute;left:50%;transform:translateX(-50%);top:calc(50% + var(--sq-side)/2 + 26px);margin:0;white-space:nowrap;font-size:var(--small);color:var(--muted);display:flex;align-items:center;gap:10px;opacity:var(--front,1)}
+.sq-arrow{display:inline-block;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+.sq-inside{width:min(100% - 2*var(--margin),900px);color:#fff;opacity:var(--inside,0);transform:translateY(calc((1 - var(--inside,0))*40px));pointer-events:var(--inside-events,none)}
+.sq-kicker{font-size:var(--small);letter-spacing:.08em;text-transform:uppercase;margin-bottom:28px;opacity:.9}
+.sq-event time{display:block;font-size:var(--lead);font-family:var(--display);margin-bottom:10px}
+.sq-event h2{color:#fff;font-size:clamp(40px,6vw,88px);margin-bottom:22px}
+.sq-event>p{max-width:620px;opacity:.95;margin-bottom:30px}
+.sq-event .actions{gap:14px 28px}
+.text-link.inverse{color:#fff}
+.sq-all{display:inline-block;margin-top:40px}
+.sq-pin .button.light:hover{opacity:.92}
+/* sponsor band on the home page */
+.sponsor-band{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;padding-block:120px 110px}
+.sponsor-band h2{font-size:clamp(34px,4vw,58px);margin:14px 0 20px}
+.sponsor-band .measure{margin:0}
+.sponsor-band-actions{display:flex;flex-direction:column;align-items:flex-start;gap:14px;justify-self:end}
+.eyebrow{font-size:var(--small);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0}
+@media(prefers-reduced-motion:reduce){.sq-stage{height:auto}.sq-pin{position:static;height:auto;display:block;padding:40px 0}.sq{display:none}.sq-front,.sq-hint{display:none}.sq-inside{opacity:1;transform:none;background:var(--accent);padding:40px;margin:0 auto;pointer-events:auto}}
+@media(max-width:900px){.sponsor-band{grid-template-columns:1fr;gap:28px;padding-block:80px}.sponsor-band-actions{justify-self:start}}
+@media(max-width:600px){.header{gap:10px}.header nav{max-width:none;margin-left:auto}.hdr-cta{padding:8px 12px;font-size:13px;min-height:38px}.sq-stage{height:220vh}.sq-pin{--sq-side:62vmin}.sq-logo{width:46vmin}.sq-event h2{font-size:38px}.sq-event time{font-size:20px}.sq-inside .actions .button{width:100%}}
+
+/* phone header: mark only, three links, the red button */
+.logo-mark{display:none}
+@media(max-width:600px){.brand .logo{display:none}.brand .logo-mark{display:block;width:26px;height:26px}.header nav{flex-wrap:nowrap;gap:12px;font-size:13px}.header nav a[href="/sponsor"]{display:none}}
