@@ -435,3 +435,5 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
 .sq-front{z-index:5}
 .sq-front .sq-tag{color:rgba(255,255,255,.85)}
 @media(prefers-reduced-motion:reduce){.space{clip-path:none;-webkit-clip-path:none}.space-events,.space-top,.space-bottom{opacity:1}}
+/* tablets: the red button already says Sponsor us, so the text link goes */
+@media(max-width:900px){.header nav{gap:18px;flex-wrap:nowrap}.header nav a{white-space:nowrap}.header nav a[href="/sponsor"]{display:none}.hdr-cta{padding:10px 14px;font-size:14px}}
