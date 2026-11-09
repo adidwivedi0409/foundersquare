@@ -85,6 +85,12 @@ document.querySelectorAll('[data-copy]').forEach(button => {
   const stage = document.querySelector('.sq-stage'), pin = document.querySelector('.sq-pin'), sq = document.querySelector('.sq');
   if (!stage || !pin || !sq) return;
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const KEY = 'fs-entered';
+  let entered = false;
+  try { entered = localStorage.getItem(KEY) === '1'; } catch (e) {}
+  if (entered) stage.classList.add('entered'); else { pin.classList.add('intro'); setTimeout(() => pin.classList.remove('intro'), 2400); }
+  const replay = document.querySelector('[data-replay]');
+  if (replay) { replay.hidden = !entered; replay.addEventListener('click', () => { try { localStorage.removeItem(KEY); } catch (e) {} scrollTo(0, 0); location.reload(); }); }
   const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
   let ticking = false;
@@ -92,7 +98,8 @@ document.querySelectorAll('[data-copy]').forEach(button => {
     ticking = false;
     const rect = stage.getBoundingClientRect();
     const total = stage.offsetHeight - innerHeight;
-    const p = clamp(-rect.top / total, 0, 1);
+    const p = total > 10 ? clamp(-rect.top / total, 0, 1) : 1;
+    if (p > 0.78 && !entered) { entered = true; try { localStorage.setItem(KEY, '1'); } catch (e) {} if (replay) replay.hidden = false; }
     const side = sq.offsetWidth || 1;
     const cover = Math.hypot(innerWidth, innerHeight) / side * 1.04;   // enough to hide every corner
     const zoom = ease(clamp(p / 0.72, 0, 1));
@@ -104,6 +111,7 @@ document.querySelectorAll('[data-copy]').forEach(button => {
     pin.style.setProperty('--front', front.toFixed(3));
     pin.style.setProperty('--inside', inside.toFixed(3));
     pin.style.setProperty('--inside-events', inside > 0.6 ? 'auto' : 'none');
+    document.body.classList.toggle('in-space', inside > 0.5);
     // the space layer is clipped to the square's current footprint, so it stays crisp while the square grows
     const vis = (sq.offsetWidth - 10) * scale;
     pin.style.setProperty('--cx', Math.max(0, (pin.clientWidth - vis) / 2).toFixed(1) + 'px');
