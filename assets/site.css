@@ -427,3 +427,11 @@ a.tag:hover{background:var(--accent);color:#fff;text-decoration:none}
 @media(prefers-reduced-motion:reduce){.space{position:static;opacity:1;pointer-events:auto;min-height:80vh;padding:40px 0}.space-canvas{display:none}.space-top,.space-bottom{position:static;padding:20px var(--margin)}.space-events{position:static;display:grid;gap:30px;padding:0 var(--margin)}.planet{position:static;transform:none}.orb{animation:none}}
 @media(max-width:900px){.planet.main{--x:50%!important;--y:44%!important;flex-direction:column;text-align:center;gap:18px}.planet.main .planet-card{justify-items:center}.planet.small{--x:22%!important;--y:84%!important}.planet.dim{--x:78%!important;--y:84%!important}.planet.small .planet-card{display:none}.space-top{top:84px}}
 @media(max-width:600px){.planet.main{--y:46%!important}.orb{--orb:110px}.planet.small{--orb:44px}.planet-card{max-width:88vw}.planet-card strong{font-size:30px}.planet-actions{justify-content:center}.space-bottom{justify-content:center}}
+
+/* ---- the square is a window into space from the first frame ---- */
+.sq{width:calc(var(--sq-side) + 10px)}
+.space{opacity:1;clip-path:inset(var(--cy,0px) var(--cx,0px));-webkit-clip-path:inset(var(--cy,0px) var(--cx,0px))}
+.space-events,.space-top,.space-bottom{opacity:var(--inside,0);transition:opacity .2s linear}
+.sq-front{z-index:5}
+.sq-front .sq-tag{color:rgba(255,255,255,.85)}
+@media(prefers-reduced-motion:reduce){.space{clip-path:none;-webkit-clip-path:none}.space-events,.space-top,.space-bottom{opacity:1}}

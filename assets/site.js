@@ -104,6 +104,10 @@ document.querySelectorAll('[data-copy]').forEach(button => {
     pin.style.setProperty('--front', front.toFixed(3));
     pin.style.setProperty('--inside', inside.toFixed(3));
     pin.style.setProperty('--inside-events', inside > 0.6 ? 'auto' : 'none');
+    // the space layer is clipped to the square's current footprint, so it stays crisp while the square grows
+    const vis = (sq.offsetWidth - 10) * scale;
+    pin.style.setProperty('--cx', Math.max(0, (pin.clientWidth - vis) / 2).toFixed(1) + 'px');
+    pin.style.setProperty('--cy', Math.max(0, (pin.clientHeight - vis) / 2).toFixed(1) + 'px');
   }
   const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
   addEventListener('scroll', onScroll, { passive: true });
@@ -150,7 +154,7 @@ document.querySelectorAll('[data-copy]').forEach(button => {
   }
   size(); addEventListener('resize', size);
   if (!reduced) {
-    const visible = () => { const r = pin.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight && parseFloat(getComputedStyle(pin).getPropertyValue('--inside') || '0') > 0.02; };
+    const visible = () => { const r = pin.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
     const tick = () => setRunning(!document.hidden && visible());
     addEventListener('scroll', tick, { passive: true }); document.addEventListener('visibilitychange', tick); tick();
     // slight parallax from the pointer
